@@ -27,6 +27,7 @@ import compasses.expandedstorage.impl.item.StorageConversionKit;
 import compasses.expandedstorage.impl.item.StorageMutator;
 import compasses.expandedstorage.impl.item.ToolUsageResult;
 import compasses.expandedstorage.impl.misc.CommonPlatformHelper;
+import compasses.expandedstorage.impl.block.misc.CopperBlockHelper;
 import compasses.expandedstorage.impl.misc.Tier;
 import compasses.expandedstorage.impl.misc.Utils;
 import compasses.expandedstorage.impl.recipe.BlockConversionRecipe;
@@ -57,6 +58,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.HoneycombItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -181,7 +183,6 @@ public final class CommonMain {
         final Properties pumpkinSettings = Properties.of().mapColor(MapColor.COLOR_ORANGE).instrument(NoteBlockInstrument.DIDGERIDOO).strength(1.0F).sound(SoundType.WOOD);
         final Properties bambooSettings = Properties.of().mapColor(MapColor.PLANT).strength(1).sound(SoundType.BAMBOO).ignitedByLava();
         final Properties mossSettings = Properties.of().mapColor(MapColor.COLOR_GREEN).strength(0.1F).sound(SoundType.MOSS);
-//        final Properties copperSettings = Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE).strength(3.0F, 6.0F).sound(SoundType.COPPER);
         final Properties ironSettings = Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.IRON_XYLOPHONE).strength(5, 6).sound(SoundType.METAL);
         final Properties goldSettings = Properties.of().mapColor(MapColor.GOLD).instrument(NoteBlockInstrument.BELL).strength(3, 6).sound(SoundType.METAL);
         final Properties diamondSettings = Properties.of().mapColor(MapColor.DIAMOND).strength(5, 6).sound(SoundType.METAL);
@@ -287,7 +288,6 @@ public final class CommonMain {
         /*Old Chest*/
         {
             final ResourceLocation woodStat = statMaker.apply("open_old_wood_chest");
-//            final ResourceLocation copperStat = statMaker.apply("open_old_copper_chest");
             final ResourceLocation ironStat = statMaker.apply("open_old_iron_chest");
             final ResourceLocation goldStat = statMaker.apply("open_old_gold_chest");
             final ResourceLocation diamondStat = statMaker.apply("open_old_diamond_chest");
@@ -593,6 +593,10 @@ public final class CommonMain {
                 miniStorageItems,
                 miniStorageBlockEntityType
         ));
+
+        if (!isClient) {
+            HoneycombItem.WAXABLES.get().putAll(CopperBlockHelper.dewaxing().inverse());
+        }
     }
 
     public static <T> void iterateNamedList(List<NamedValue<? extends T>> list, BiConsumer<ResourceLocation, T> consumer) {

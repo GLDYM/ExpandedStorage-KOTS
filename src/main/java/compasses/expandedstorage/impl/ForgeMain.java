@@ -5,7 +5,6 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import compasses.expandedstorage.impl.block.entity.extendable.OpenableBlockEntity;
 import compasses.expandedstorage.impl.block.misc.BasicLockable;
-import compasses.expandedstorage.impl.block.misc.CopperBlockHelper;
 import compasses.expandedstorage.impl.misc.Utils;
 import compasses.expandedstorage.impl.recipe.ConversionRecipeManager;
 import compasses.expandedstorage.impl.recipe.ConversionRecipeReloadListener;
@@ -26,7 +25,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.HoneycombItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -138,9 +136,7 @@ public final class ForgeMain {
             });
         });
 
-        // Hopefully if another mod replaces this supplier we'll capture theirs here.
-        Supplier<BiMap<Block, Block>> originalWaxablesMap = HoneycombItem.WAXABLES;
-        HoneycombItem.WAXABLES.get().putAll(CopperBlockHelper.dewaxing().inverse());
+        // HoneycombItem.WAXABLES.get().putAll(CopperBlockHelper.dewaxing().inverse());
 
         if (FMLLoader.getDist() == Dist.CLIENT) {
             ForgeClient.initialize(modBus, content);
