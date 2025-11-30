@@ -2,4 +2,4 @@
 
 KOTS Fork of Expanded Storage by quinn-semele and compasses.
 
-Now have no changes.
+Currently, this mod implements ForgeCapabilities, improving compatibility with other mods.

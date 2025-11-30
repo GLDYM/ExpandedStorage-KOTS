@@ -1,16 +1,16 @@
 modLoader = "javafml"
 loaderVersion = "[47,)"
-issueTrackerURL = "https://github.com/quinn-semele/expanded-storage/issues"
-license = "See LICENSE file"
+issueTrackerURL = "https://github.com/GLDYM/ExpandedStorage-KOTS/issues"
+license = "MIT"
 
 [[mods]]
 modId = "expandedstorage"
 version = "10.3.0"
-displayName = "Expanded Storage"
-authors = "Quinn Semele"
+displayName = "Expanded Storage KOTS"
+authors = "Polaris_Light"
 logoFile = "icon.png"
-displayURL = "https://modrinth.com/mod/expanded-storage"
-description = "A mod adding various storage types, including double iron chests."
+displayURL = "https://curseforge.com/minecraft/mc-mods/expanded-storage-kots"
+description = "KOTS Fork of Expanded Storage, adding more storage blocks and features."
 
 [[dependencies.expandedstorage]]
 modId = "forge"
