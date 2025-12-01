@@ -21,25 +21,28 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
+import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.wrapper.CombinedInvWrapper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class OldChestBlockEntity extends InventoryBlockEntity {
-    WorldlyContainer cachedDoubleInventory = null;
-    private final LazyOptional<IItemHandler> singleHandler = LazyOptional.of(() -> new InvWrapper(this));
+    private OldChestBlockEntity otherChest = null;
+    private WorldlyContainer cachedDoubleInventory = null;
+    private final LazyOptional<IItemHandlerModifiable> singleHandler;
 
     public OldChestBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, ResourceLocation blockId,
                                Function<OpenableBlockEntity, ItemAccess> access, Supplier<Lockable> lockable) {
         super(type, pos, state, blockId, ((OpenableBlock) state.getBlock()).getInventoryTitle(), ((OpenableBlock) state.getBlock()).getSlotCount());
         this.setItemAccess(access.apply(this));
         this.setLockable(lockable.get());
+        this.singleHandler = LazyOptional.of(this::getItemHandler);
     }
 
     public void invalidateDoubleBlockCache() {
+        otherChest = null;
         cachedDoubleInventory = null;
         this.getItemAccess().setOther(null);
     }
@@ -49,25 +52,18 @@ public class OldChestBlockEntity extends InventoryBlockEntity {
     }
 
     public void setCachedDoubleInventory(OldChestBlockEntity other) {
-        BlockState state = this.getBlockState();
-        if (!(state.getBlock() instanceof AbstractChestBlock)) {
-            this.cachedDoubleInventory = VariableSidedInventory.of(this.getInventory(), other.getInventory());
-            return;
-        }
-
-        EsChestType type = state.getValue(AbstractChestBlock.CURSED_CHEST_TYPE);
-
-        if (AbstractChestBlock.getBlockType(type) == DoubleBlockCombiner.BlockType.FIRST) {
-            this.cachedDoubleInventory = VariableSidedInventory.of(this.getInventory(), other.getInventory());
-        } else {
-            this.cachedDoubleInventory = VariableSidedInventory.of(other.getInventory(), this.getInventory());
-        }
+        this.cachedDoubleInventory = VariableSidedInventory.of(this.getInventory(), other.getInventory());
     }
 
-    @Override
-    public void setChanged() {
-        super.setChanged();
+    public OldChestBlockEntity getOtherChest() {
+        return otherChest;
+    }
 
+    public void setOtherChest(@Nullable OldChestBlockEntity otherChest) {
+        this.otherChest = otherChest;
+    }
+
+    public void updateOtherChest() {
         BlockState state = this.getBlockState();
         if (state.getBlock() instanceof AbstractChestBlock) {
             if (state.getValue(AbstractChestBlock.CURSED_CHEST_TYPE) != EsChestType.SINGLE) {
@@ -75,8 +71,9 @@ public class OldChestBlockEntity extends InventoryBlockEntity {
                 BlockPos otherPos = worldPosition.relative(dir);
                 BlockEntity be = level.getBlockEntity(otherPos);
                 if (be instanceof OldChestBlockEntity other) {
-                    this.setCachedDoubleInventory(other);
-                    other.setCachedDoubleInventory(this);
+                    this.setOtherChest(other);
+                    other.setOtherChest(this);
+                    this.getItemAccess().setOther(other.getItemAccess());
                 } else {
                     this.invalidateDoubleBlockCache();
                 }
@@ -91,12 +88,31 @@ public class OldChestBlockEntity extends InventoryBlockEntity {
         return (DoubleItemAccess) super.getItemAccess();
     }
 
+    public IItemHandlerModifiable getCombinedHandler() {
+        if (otherChest == null) {
+            return this.getItemHandler();
+        }
+        BlockState state = this.getBlockState();
+        if (!(state.getBlock() instanceof AbstractChestBlock)) {
+            return new CombinedInvWrapper(this.getItemHandler(), otherChest.getItemHandler());
+        }
+
+        EsChestType type = state.getValue(AbstractChestBlock.CURSED_CHEST_TYPE);
+        if (AbstractChestBlock.getBlockType(type) == DoubleBlockCombiner.BlockType.FIRST) {
+            return new CombinedInvWrapper(this.getItemHandler(), otherChest.getItemHandler());
+        } else {
+            return new CombinedInvWrapper(otherChest.getItemHandler(), this.getItemHandler());
+        }
+    }
+
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
-        setChanged();
         if (cap == ForgeCapabilities.ITEM_HANDLER) {
-            if (cachedDoubleInventory != null) {
-                return LazyOptional.of(() -> new InvWrapper(cachedDoubleInventory)).cast();
+            if (otherChest == null) {
+                this.updateOtherChest();
+            }
+            if (otherChest != null) {
+                return LazyOptional.of(() -> getCombinedHandler()).cast();
             }
             return singleHandler.cast();
         }
@@ -104,60 +120,8 @@ public class OldChestBlockEntity extends InventoryBlockEntity {
     }
 
     @Override
-    public int getContainerSize() {
-        if (cachedDoubleInventory != null) {
-            return cachedDoubleInventory.getContainerSize();
-        }
-        return super.getContainerSize();
-    }
-
-    @Override
-    public boolean isEmpty() {
-        if (cachedDoubleInventory != null) {
-            return cachedDoubleInventory.isEmpty();
-        }
-        return super.isEmpty();
-    }
-
-    @Override
-    public ItemStack getItem(int slot) {
-        if (cachedDoubleInventory != null) {
-            return cachedDoubleInventory.getItem(slot);
-        }
-        return super.getItem(slot);
-    }
-
-    @Override
-    public void setItem(int slot, ItemStack stack) {
-        if (cachedDoubleInventory != null) {
-            cachedDoubleInventory.setItem(slot, stack);
-        } else {
-            super.setItem(slot, stack);
-        }
-    }
-
-    @Override
-    public ItemStack removeItem(int slot, int count) {
-        if (cachedDoubleInventory != null) {
-            return cachedDoubleInventory.removeItem(slot, count);
-        }
-        return super.removeItem(slot, count);
-    }
-
-    @Override
-    public ItemStack removeItemNoUpdate(int slot) {
-        if (cachedDoubleInventory != null) {
-            return cachedDoubleInventory.removeItemNoUpdate(slot);
-        }
-        return super.removeItemNoUpdate(slot);
-    }
-
-    @Override
-    public void clearContent() {
-        if (cachedDoubleInventory != null) {
-            cachedDoubleInventory.clearContent();
-        } else {
-            super.clearContent();
-        }
+    public void setChanged() {
+        super.setChanged();
+        this.updateOtherChest();
     }
 }

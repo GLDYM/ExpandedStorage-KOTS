@@ -6,6 +6,7 @@ import com.google.common.collect.ImmutableBiMap;
 import compasses.expandedstorage.impl.block.entity.extendable.OpenableBlockEntity;
 import compasses.expandedstorage.impl.block.misc.BasicLockable;
 import compasses.expandedstorage.impl.block.misc.CopperBlockHelper;
+import compasses.expandedstorage.impl.compat.create.EsMountedStorageTypes;
 import compasses.expandedstorage.impl.misc.Utils;
 import compasses.expandedstorage.impl.recipe.ConversionRecipeManager;
 import compasses.expandedstorage.impl.recipe.ConversionRecipeReloadListener;
@@ -45,6 +46,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegisterEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -52,6 +55,8 @@ import java.util.function.Supplier;
 
 @Mod("expandedstorage")
 public final class ForgeMain {
+    public static final Logger LOGGER = LogManager.getLogger();
+
     public ForgeMain() {
         CommonMain.constructContent(new ForgeCommonHelper(), GenericItemAccess::new, BasicLockable::new,
                 FMLLoader.getDist().isClient(), this::registerContent,
@@ -94,6 +99,11 @@ public final class ForgeMain {
                 helper.register(Utils.HANDLER_TYPE_ID, CommonMain.platformHelper().getScreenHandlerType());
             });
         });
+        
+        // Create Compat
+        //if (FMLLoader.getLoadingModList().getModFileById("create") != null) {
+        //   EsMountedStorageTypes.register();
+        //}
     }
 
     private void registerContent(Content content) {
