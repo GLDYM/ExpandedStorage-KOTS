@@ -56,8 +56,11 @@ import java.util.function.Supplier;
 @Mod("expandedstorage")
 public final class ForgeMain {
     public static final Logger LOGGER = LogManager.getLogger();
+    public static IEventBus modBus;
 
-    public ForgeMain() {
+    public ForgeMain(FMLJavaModLoadingContext contentBus) {
+        this.modBus = contentBus.getModEventBus();
+
         CommonMain.constructContent(new ForgeCommonHelper(), GenericItemAccess::new, BasicLockable::new,
                 FMLLoader.getDist().isClient(), this::registerContent,
                 /*Base*/ false,
@@ -94,7 +97,7 @@ public final class ForgeMain {
             }
         });
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener((RegisterEvent event) -> {
+        modBus.addListener((RegisterEvent event) -> {
             event.register(ForgeRegistries.Keys.MENU_TYPES, helper -> {
                 helper.register(Utils.HANDLER_TYPE_ID, CommonMain.platformHelper().getScreenHandlerType());
             });
@@ -103,12 +106,11 @@ public final class ForgeMain {
         // Create Compat
         if (FMLLoader.getLoadingModList().getModFileById("create") != null) {
             CreateCompat.register();
-            CreateCompat.REGISTRATE.registerEventListeners(FMLJavaModLoadingContext.get().getModEventBus());
+            CreateCompat.REGISTRATE.registerEventListeners(modBus);
         }
     }
 
     private void registerContent(Content content) {
-        IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         modBus.addListener((RegisterEvent event) -> {
             event.register(ForgeRegistries.Keys.STAT_TYPES, helper -> {
                 content.getStats().forEach(it -> Registry.register(BuiltInRegistries.CUSTOM_STAT, it, it));
