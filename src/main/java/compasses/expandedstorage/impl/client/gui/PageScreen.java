@@ -54,7 +54,19 @@ public final class PageScreen extends AbstractScreen {
     }
 
     private static boolean regionIntersects(AbstractWidget widget, int x, int y, int width, int height) {
-        return widget.getX() <= x + width && y <= widget.getY() + widget.getHeight() || x <= widget.getX() + widget.getWidth() && widget.getY() <= y + height;
+        int left = widget.getX();
+        int right = left + widget.getWidth();
+
+        int top = widget.getY();
+        int bottom = top + widget.getHeight();
+
+        if ((left >= x && left <= x + width) || (right >= x && right <= x + width)) {
+            if ((top >= y && top <= y + height) || (bottom >= y && bottom <= y + height)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public static ScreenSize retrieveScreenSize(int slots, int scaledWidth, int scaledHeight) {
@@ -233,7 +245,7 @@ public final class PageScreen extends AbstractScreen {
             }
         }
         // Honestly this is dumb.
-        if (x == originalX && CommonClient.platformHelper().isModLoaded("inventoryprofiles")) {
+        if (x == originalX && (CommonClient.platformHelper().isModLoaded("inventoryprofiles") || CommonClient.platformHelper().isModLoaded("inventoryprofilesnext"))) {
             x -= 14;
         }
         leftPageButton = new PageButton(x, y, 0,

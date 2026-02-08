@@ -9,7 +9,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.Equipable;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -32,7 +34,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class MiniStorageBlock extends OpenableBlock implements SimpleWaterloggedBlock {
+public class MiniStorageBlock extends OpenableBlock implements SimpleWaterloggedBlock, Equipable {
     private static final VoxelShape NO_RIBBON_NO_SPARROW;
     private static final VoxelShape RIBBON_NO_SPARROW;
 
@@ -160,5 +162,11 @@ public class MiniStorageBlock extends OpenableBlock implements SimpleWaterlogged
     @Override
     public ResourceLocation getForcedScreenType() {
         return Utils.MINI_STORAGE_SCREEN_TYPE;
+    }
+
+    @NotNull
+    @Override
+    public EquipmentSlot getEquipmentSlot() {
+        return EquipmentSlot.HEAD;
     }
 }

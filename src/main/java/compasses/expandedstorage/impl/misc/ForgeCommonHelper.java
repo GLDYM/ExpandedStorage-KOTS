@@ -85,6 +85,7 @@ public class ForgeCommonHelper implements CommonPlatformHelper {
 
     @Override
     public boolean isWoodenChest(BlockState state) {
-        return state.is(ModBlocks.OLD_WOOD_CHEST) || state.is(Tags.Blocks.CHESTS_WOODEN);
+        //return state.is(ModBlocks.OLD_WOOD_CHEST) || state.is(Tags.Blocks.CHESTS_WOODEN);
+        return state.is(Tags.Blocks.CHESTS_WOODEN);
     }
 }

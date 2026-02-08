@@ -5,7 +5,6 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import compasses.expandedstorage.impl.block.entity.extendable.OpenableBlockEntity;
 import compasses.expandedstorage.impl.block.misc.BasicLockable;
-import compasses.expandedstorage.impl.block.misc.CopperBlockHelper;
 import compasses.expandedstorage.impl.compat.create.CreateCompat;
 import compasses.expandedstorage.impl.misc.Utils;
 import compasses.expandedstorage.impl.recipe.ConversionRecipeManager;
@@ -27,7 +26,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -44,14 +42,13 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLLoader;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegisterEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.function.Supplier;
 
 @Mod("expandedstorage")
 public final class ForgeMain {
@@ -134,23 +131,22 @@ public final class ForgeMain {
             event.register(ForgeRegistries.Keys.ENTITY_TYPES, helper -> {
                 CommonMain.iterateNamedList(content.getEntityTypes(), helper::register);
             });
-
-            event.register(Registries.CREATIVE_MODE_TAB, helper -> {
-                helper.register(Utils.id("tab"), CreativeModeTab
-                        .builder()
-                        .icon(() -> ForgeRegistries.ITEMS.getValue(Utils.id("netherite_chest")).getDefaultInstance())
-                        .displayItems((itemDisplayParameters, output) -> {
-                            CommonMain.generateDisplayItems(itemDisplayParameters, stack -> {
-                                output.accept(stack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                            });
-                        })
-                        .title(Component.translatable("itemGroup.expandedstorage.tab"))
-                        .build()
-                );
-            });
         });
 
-        // HoneycombItem.WAXABLES.get().putAll(CopperBlockHelper.dewaxing().inverse());
+        DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Utils.MOD_ID);
+        TABS.register("tab", 
+            () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup.expandedstorage.tab"))
+                    .icon(() -> ForgeRegistries.ITEMS.getValue(Utils.id("netherite_chest")).getDefaultInstance())
+                    .displayItems((itemDisplayParameters, output) -> {
+                        CommonMain.generateDisplayItems(itemDisplayParameters, stack -> {
+                            output.accept(stack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                        });
+                    })          
+                    .build()
+        );
+        TABS.register(modBus);
+        LOGGER.info("Registering Creative Tab: " + Utils.id("tab"));
 
         if (FMLLoader.getDist() == Dist.CLIENT) {
             ForgeClient.initialize(modBus, content);
