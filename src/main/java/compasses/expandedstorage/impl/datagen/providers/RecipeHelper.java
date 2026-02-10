@@ -213,7 +213,7 @@ public class RecipeHelper {
                 .save(exporter);
         smithingRecipe(ModItems.DIAMOND_TO_NETHERITE_CONVERSION_KIT, ModItems.DIAMOND_TO_OBSIDIAN_CONVERSION_KIT, netheriteIngots, RecipeCategory.MISC, Criterions.HAS_PREVIOUS_KIT, exporter);
 
-        SmithingTransformRecipeBuilder.smithing(Ingredient.of(), Ingredient.of(obsidianBlocks), Ingredient.of(netheriteIngots), RecipeCategory.MISC, ModItems.OBSIDIAN_TO_NETHERITE_CONVERSION_KIT)
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(obsidianBlocks), Ingredient.of(netheriteIngots), RecipeCategory.MISC, ModItems.OBSIDIAN_TO_NETHERITE_CONVERSION_KIT)
                                       .unlocks(Criterions.HAS_ITEM, RecipeHelper.has(obsidianBlocks))
                                       .save(exporter, itemIdGetter.apply(ModItems.OBSIDIAN_TO_NETHERITE_CONVERSION_KIT));
     }
