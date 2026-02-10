@@ -1,34 +1,34 @@
-[08Feb2026 15:57:58.248] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, D:\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.4.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, expandedstorage, --all, --output, D:\Git\ExpandedStorage-KOTS\src\generated\resources, --existing, D:\Git\ExpandedStorage-KOTS\src\main\resources]
-[08Feb2026 15:57:58.261] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.4 by Alibaba; OS Windows 11 arch amd64 version 10.0
-[08Feb2026 15:57:58.585] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[08Feb2026 15:57:58.734] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/D:/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[08Feb2026 15:57:59.711] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file D:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.4.0\f0c0b352173d0a378cbdcec9cfc4ba65899a721\javafmllanguage-1.20.1-47.4.0.jar is missing mods.toml file
-[08Feb2026 15:57:59.726] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file D:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.4.0\e862740d8c84d08dbfedea412bef88fe42e727c5\lowcodelanguage-1.20.1-47.4.0.jar is missing mods.toml file
-[08Feb2026 15:57:59.737] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file D:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.4.0\5719b3a297a33f877ed5dde4cb4bd75c859096af\mclanguage-1.20.1-47.4.0.jar is missing mods.toml file
-[08Feb2026 15:57:59.757] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file D:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.4.0\235975dafa4309945b59c56b53f31dc5b65a6051\fmlcore-1.20.1-47.4.0.jar is missing mods.toml file
-[08Feb2026 15:57:59.966] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[08Feb2026 15:58:04.378] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, D:\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, expandedstorage, --all, --output, D:\Git\ExpandedStorage-KOTS\src\generated\resources, --existing, D:\Git\ExpandedStorage-KOTS\src\main\resources]
-[08Feb2026 15:58:05.375] [main/INFO] [mixin/]: Remapping refMap expandedstorage.refmap.json using D:\Git\ExpandedStorage-KOTS/build/createSrgToMcp/output.srg
-[08Feb2026 15:58:06.325] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [expandedstorage]
-[08Feb2026 15:58:17.138] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.0, for MC 1.20.1 with MCP 20230612.114412
-[08Feb2026 15:58:17.144] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.0 Initialized
-[08Feb2026 15:58:17.275] [modloading-worker-0/INFO] [compasses.expandedstorage.impl.ForgeMain/]: Registering Creative Tab: expandedstorage:tab
-[08Feb2026 15:58:17.480] [modloading-worker-0/WARN] [expandedstorage/]: Could not load an existing config, Expanded Storage is using it's default config.
-[08Feb2026 15:58:18.235] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.0_mapped_official_1.20.1/forge-1.20.1-47.4.0_mapped_official_1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[08Feb2026 15:58:18.236] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.0_mapped_official_1.20.1/forge-1.20.1-47.4.0_mapped_official_1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[08Feb2026 15:58:18.510] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Expanded Storage - Block Tags
-[08Feb2026 15:58:19.169] [main/INFO] [net.minecraft.data.DataGenerator/]: Expanded Storage - Block Tags finished after 657 ms
-[08Feb2026 15:58:19.169] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Expanded Storage - Item Tags
-[08Feb2026 15:58:19.190] [main/INFO] [net.minecraft.data.DataGenerator/]: Expanded Storage - Item Tags finished after 20 ms
-[08Feb2026 15:58:19.190] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Expanded Storage - Entity Type Tags
-[08Feb2026 15:58:19.237] [main/INFO] [net.minecraft.data.DataGenerator/]: Expanded Storage - Entity Type Tags finished after 46 ms
-[08Feb2026 15:58:19.238] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[08Feb2026 15:58:19.483] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 244 ms
-[08Feb2026 15:58:19.483] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[08Feb2026 15:58:19.630] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 147 ms
-[08Feb2026 15:58:19.631] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Expanded Storage - Item Models
-[08Feb2026 15:58:19.684] [main/INFO] [net.minecraft.data.DataGenerator/]: Expanded Storage - Item Models finished after 52 ms
-[08Feb2026 15:58:19.685] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Expanded Storage - Conversion Recipes
-[08Feb2026 15:58:19.821] [main/INFO] [net.minecraft.data.DataGenerator/]: Expanded Storage - Conversion Recipes finished after 135 ms
-[08Feb2026 15:58:19.822] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 1311 ms
-[08Feb2026 15:58:19.926] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 312, old count: 0, new count: 313, removed stale: 0, written: 312
+[08Feb2026 16:15:14.594] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, D:\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.4.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, expandedstorage, --all, --output, D:\Git\ExpandedStorage-KOTS\src\generated\resources, --existing, D:\Git\ExpandedStorage-KOTS\src\main\resources]
+[08Feb2026 16:15:14.604] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.4 by Alibaba; OS Windows 11 arch amd64 version 10.0
+[08Feb2026 16:15:14.888] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[08Feb2026 16:15:15.010] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/D:/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[08Feb2026 16:15:15.740] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file D:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.4.0\f0c0b352173d0a378cbdcec9cfc4ba65899a721\javafmllanguage-1.20.1-47.4.0.jar is missing mods.toml file
+[08Feb2026 16:15:15.748] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file D:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.4.0\e862740d8c84d08dbfedea412bef88fe42e727c5\lowcodelanguage-1.20.1-47.4.0.jar is missing mods.toml file
+[08Feb2026 16:15:15.754] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file D:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.4.0\5719b3a297a33f877ed5dde4cb4bd75c859096af\mclanguage-1.20.1-47.4.0.jar is missing mods.toml file
+[08Feb2026 16:15:15.765] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file D:\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.4.0\235975dafa4309945b59c56b53f31dc5b65a6051\fmlcore-1.20.1-47.4.0.jar is missing mods.toml file
+[08Feb2026 16:15:15.901] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[08Feb2026 16:15:19.494] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, D:\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, expandedstorage, --all, --output, D:\Git\ExpandedStorage-KOTS\src\generated\resources, --existing, D:\Git\ExpandedStorage-KOTS\src\main\resources]
+[08Feb2026 16:15:20.165] [main/INFO] [mixin/]: Remapping refMap expandedstorage.refmap.json using D:\Git\ExpandedStorage-KOTS/build/createSrgToMcp/output.srg
+[08Feb2026 16:15:21.181] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [expandedstorage]
+[08Feb2026 16:15:30.396] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.0, for MC 1.20.1 with MCP 20230612.114412
+[08Feb2026 16:15:30.402] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.0 Initialized
+[08Feb2026 16:15:30.508] [modloading-worker-0/INFO] [compasses.expandedstorage.impl.ForgeMain/]: Registering Creative Tab: expandedstorage:tab
+[08Feb2026 16:15:30.629] [modloading-worker-0/WARN] [expandedstorage/]: Could not load an existing config, Expanded Storage is using it's default config.
+[08Feb2026 16:15:31.371] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.0_mapped_official_1.20.1/forge-1.20.1-47.4.0_mapped_official_1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[08Feb2026 16:15:31.371] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/D:/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.0_mapped_official_1.20.1/forge-1.20.1-47.4.0_mapped_official_1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[08Feb2026 16:15:31.665] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Expanded Storage - Block Tags
+[08Feb2026 16:15:31.969] [main/INFO] [net.minecraft.data.DataGenerator/]: Expanded Storage - Block Tags finished after 302 ms
+[08Feb2026 16:15:31.969] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Expanded Storage - Item Tags
+[08Feb2026 16:15:31.981] [main/INFO] [net.minecraft.data.DataGenerator/]: Expanded Storage - Item Tags finished after 11 ms
+[08Feb2026 16:15:31.982] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Expanded Storage - Entity Type Tags
+[08Feb2026 16:15:31.994] [main/INFO] [net.minecraft.data.DataGenerator/]: Expanded Storage - Entity Type Tags finished after 11 ms
+[08Feb2026 16:15:31.994] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[08Feb2026 16:15:32.223] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 228 ms
+[08Feb2026 16:15:32.224] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[08Feb2026 16:15:32.337] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 112 ms
+[08Feb2026 16:15:32.337] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Expanded Storage - Item Models
+[08Feb2026 16:15:32.397] [main/INFO] [net.minecraft.data.DataGenerator/]: Expanded Storage - Item Models finished after 59 ms
+[08Feb2026 16:15:32.397] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Expanded Storage - Conversion Recipes
+[08Feb2026 16:15:32.491] [main/INFO] [net.minecraft.data.DataGenerator/]: Expanded Storage - Conversion Recipes finished after 93 ms
+[08Feb2026 16:15:32.492] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 828 ms
+[08Feb2026 16:15:32.567] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 313, old count: 0, new count: 314, removed stale: 0, written: 313
