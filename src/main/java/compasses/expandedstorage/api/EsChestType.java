@@ -56,3 +56,4 @@ public enum EsChestType implements StringRepresentable {
         return offset;
     }
 }
+

@@ -1,7 +1,7 @@
 {
   "required": true,
-  "plugin": "compasses.expandedstorage.impl.MixinPlugin",
-  "package": "compasses.expandedstorage.impl.mixin",
+  "plugin": "compasses.expandedstorage.MixinPlugin",
+  "package": "compasses.expandedstorage.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "common.OxidizableBlockMixin"

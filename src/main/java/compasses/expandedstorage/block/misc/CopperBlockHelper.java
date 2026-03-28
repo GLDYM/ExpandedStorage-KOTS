@@ -1,0 +1,56 @@
+package compasses.expandedstorage.block.misc;
+
+import com.google.common.collect.BiMap;
+import com.google.common.collect.ImmutableBiMap;
+import compasses.expandedstorage.registry.AllBlocks;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+
+import java.util.Optional;
+
+public class CopperBlockHelper {
+    private static final BiMap<Block, Block> OXIDISATION_MAP =
+            ImmutableBiMap.<Block, Block>builder()
+                          .put(AllBlocks.COPPER_BARREL, AllBlocks.EXPOSED_COPPER_BARREL)
+                          .put(AllBlocks.EXPOSED_COPPER_BARREL, AllBlocks.WEATHERED_COPPER_BARREL)
+                          .put(AllBlocks.WEATHERED_COPPER_BARREL, AllBlocks.OXIDIZED_COPPER_BARREL)
+                          .put(AllBlocks.COPPER_MINI_BARREL, AllBlocks.EXPOSED_COPPER_MINI_BARREL)
+                          .put(AllBlocks.EXPOSED_COPPER_MINI_BARREL, AllBlocks.WEATHERED_COPPER_MINI_BARREL)
+                          .put(AllBlocks.WEATHERED_COPPER_MINI_BARREL, AllBlocks.OXIDIZED_COPPER_MINI_BARREL)
+                          .build();
+
+    private static final BiMap<Block, Block> INVERSE_MAP = OXIDISATION_MAP.inverse();
+
+    private static final BiMap<Block, Block> DEWAXED_MAP =
+            ImmutableBiMap.<Block, Block>builder()
+                          .put(AllBlocks.WAXED_COPPER_BARREL, AllBlocks.COPPER_BARREL)
+                          .put(AllBlocks.WAXED_EXPOSED_COPPER_BARREL, AllBlocks.EXPOSED_COPPER_BARREL)
+                          .put(AllBlocks.WAXED_WEATHERED_COPPER_BARREL, AllBlocks.WEATHERED_COPPER_BARREL)
+                          .put(AllBlocks.WAXED_OXIDIZED_COPPER_BARREL, AllBlocks.OXIDIZED_COPPER_BARREL)
+                          .put(AllBlocks.WAXED_COPPER_MINI_BARREL, AllBlocks.COPPER_MINI_BARREL)
+                          .put(AllBlocks.WAXED_EXPOSED_COPPER_MINI_BARREL, AllBlocks.EXPOSED_COPPER_MINI_BARREL)
+                          .put(AllBlocks.WAXED_WEATHERED_COPPER_MINI_BARREL, AllBlocks.WEATHERED_COPPER_MINI_BARREL)
+                          .put(AllBlocks.WAXED_OXIDIZED_COPPER_MINI_BARREL, AllBlocks.OXIDIZED_COPPER_MINI_BARREL)
+                          .build();
+
+    public static Optional<BlockState> getNextOxidisedState(BlockState state) {
+        return Optional.ofNullable(OXIDISATION_MAP.getOrDefault(state.getBlock(), null)).map(block -> block.withPropertiesOf(state));
+    }
+
+    public static Optional<BlockState> getPreviousOxidisedState(BlockState state) {
+        return Optional.ofNullable(INVERSE_MAP.getOrDefault(state.getBlock(), null)).map(block -> block.withPropertiesOf(state));
+    }
+
+    public static BiMap<Block, Block> oxidisation() {
+        return OXIDISATION_MAP;
+    }
+
+    public static BiMap<Block, Block> dewaxing() {
+        return DEWAXED_MAP;
+    }
+
+    public static Optional<BlockState> getDewaxed(BlockState state) {
+        return Optional.ofNullable(DEWAXED_MAP.getOrDefault(state.getBlock(), null)).map(block -> block.withPropertiesOf(state));
+    }
+}
+
