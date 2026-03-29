@@ -6,14 +6,19 @@ import compasses.expandedstorage.block.entity.OldChestBlockEntity;
 import compasses.expandedstorage.block.entity.extendable.OpenableBlockEntity;
 import compasses.expandedstorage.block.misc.DoubleItemAccess;
 import compasses.expandedstorage.block.strategies.ItemAccess;
-import compasses.expandedstorage.ForgeMain;
+import compasses.expandedstorage.ExpandedStorage;
 import compasses.expandedstorage.item.EntityInteractableItem;
 import compasses.expandedstorage.misc.Utils;
+import compasses.expandedstorage.network.ClientboundUpdateRecipesMessage;
+import compasses.expandedstorage.recipe.BlockConversionRecipe;
 import compasses.expandedstorage.recipe.ConversionRecipeManager;
 import compasses.expandedstorage.recipe.ConversionRecipeReloadListener;
+import compasses.expandedstorage.recipe.EntityConversionRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -32,22 +37,28 @@ import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.OnDatapackSyncEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.PacketDistributor;
+import net.minecraftforge.network.simple.SimpleChannel;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Optional;
 
 public final class ModEvents {
+
     private ModEvents() {
     }
 
     public static void register() {
         MinecraftForge.EVENT_BUS.addListener((AddReloadListenerEvent event) -> event.addListener(new ConversionRecipeReloadListener()));
-        MinecraftForge.EVENT_BUS.addListener((OnDatapackSyncEvent event) -> ForgeMain.sendConversionRecipesToClient(event.getPlayer(), ConversionRecipeManager.INSTANCE.getBlockRecipes(), ConversionRecipeManager.INSTANCE.getEntityRecipes()));
+        MinecraftForge.EVENT_BUS.addListener((OnDatapackSyncEvent event) -> sendConversionRecipesToClient(event.getPlayer(), ConversionRecipeManager.INSTANCE.getBlockRecipes(), ConversionRecipeManager.INSTANCE.getEntityRecipes()));
 
         MinecraftForge.EVENT_BUS.addGenericListener(BlockEntity.class, (AttachCapabilitiesEvent<BlockEntity> event) -> {
             if (event.getObject() instanceof OpenableBlockEntity entity) {
-                event.addCapability(compasses.expandedstorage.ForgeMain.id("item_access"), new ICapabilityProvider() {
+                event.addCapability(ExpandedStorage.id("item_access"), new ICapabilityProvider() {
                     @NotNull
                     @Override
                     public <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction side) {
@@ -118,6 +129,19 @@ public final class ModEvents {
             return result;
         }
         return InteractionResult.PASS;
+    }
+
+    public static void sendConversionRecipesToClient(@Nullable ServerPlayer target, List<BlockConversionRecipe<?>> blockRecipes, List<EntityConversionRecipe<?>> entityRecipes) {
+        ClientboundUpdateRecipesMessage message = new ClientboundUpdateRecipesMessage(blockRecipes, entityRecipes);
+        if (target == null) {
+            ExpandedStorage.CHANNEL.send(PacketDistributor.ALL.noArg(), message);
+            return;
+        }
+        if (!ExpandedStorage.CHANNEL.isRemotePresent(target.connection.connection)) {
+            target.connection.disconnect(Component.translatable("text.expandedstorage.disconnect.old_version"));
+            return;
+        }
+        ExpandedStorage.CHANNEL.send(PacketDistributor.PLAYER.with(() -> target), message);
     }
 }
 

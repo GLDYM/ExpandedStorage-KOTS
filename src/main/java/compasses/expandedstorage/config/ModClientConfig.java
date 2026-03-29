@@ -6,14 +6,15 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig;
 import org.jetbrains.annotations.Nullable;
+import compasses.expandedstorage.ExpandedStorage;
 
 import java.util.Set;
 
 public final class ModClientConfig {
-    public static final ResourceLocation PAGINATED_SCREEN_TYPE = ResourceLocation.fromNamespaceAndPath(compasses.expandedstorage.ForgeMain.MOD_ID, "paginated");
-    public static final ResourceLocation SINGLE_SCREEN_TYPE = ResourceLocation.fromNamespaceAndPath(compasses.expandedstorage.ForgeMain.MOD_ID, "single");
-    public static final ResourceLocation SCROLLABLE_SCREEN_TYPE = ResourceLocation.fromNamespaceAndPath(compasses.expandedstorage.ForgeMain.MOD_ID, "scrollable");
-    public static final ResourceLocation MINI_STORAGE_SCREEN_TYPE = ResourceLocation.fromNamespaceAndPath(compasses.expandedstorage.ForgeMain.MOD_ID, "mini_storage");
+    public static final ResourceLocation PAGINATED_SCREEN_TYPE = ResourceLocation.fromNamespaceAndPath(ExpandedStorage.MOD_ID, "paginated");
+    public static final ResourceLocation SINGLE_SCREEN_TYPE = ResourceLocation.fromNamespaceAndPath(ExpandedStorage.MOD_ID, "single");
+    public static final ResourceLocation SCROLLABLE_SCREEN_TYPE = ResourceLocation.fromNamespaceAndPath(ExpandedStorage.MOD_ID, "scrollable");
+    public static final ResourceLocation MINI_STORAGE_SCREEN_TYPE = ResourceLocation.fromNamespaceAndPath(ExpandedStorage.MOD_ID, "mini_storage");
 
     private static final String AUTO_SCREEN_TYPE = "auto";
     private static final Set<String> VALID_SCREEN_TYPES = Set.of(

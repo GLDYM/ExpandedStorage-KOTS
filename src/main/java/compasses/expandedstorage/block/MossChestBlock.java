@@ -3,7 +3,6 @@ package compasses.expandedstorage.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.features.CaveFeatures;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
@@ -12,8 +11,8 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class MossChestBlock extends ChestBlock implements BonemealableBlock {
-    public MossChestBlock(Properties settings, ResourceLocation openingStat, int slotCount) {
-        super(settings, openingStat, slotCount);
+    public MossChestBlock(Properties settings, int slotCount) {
+        super(settings, slotCount);
     }
 
     @Override

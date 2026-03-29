@@ -5,6 +5,7 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
+import compasses.expandedstorage.ExpandedStorage;
 
 import java.util.Map;
 import java.util.Set;
@@ -23,7 +24,7 @@ public final class BlockLootProvider extends BlockLootSubProvider {
     @Override
     protected Iterable<Block> getKnownBlocks() {
         return ForgeRegistries.BLOCKS.getEntries().stream()
-                                     .filter(entry -> entry.getKey().location().getNamespace().equals(compasses.expandedstorage.ForgeMain.MOD_ID))
+                                     .filter(entry -> entry.getKey().location().getNamespace().equals(ExpandedStorage.MOD_ID))
                                      .map(Map.Entry::getValue)
                                      .collect(Collectors.toSet());
     }

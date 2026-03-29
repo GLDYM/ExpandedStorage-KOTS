@@ -52,8 +52,8 @@ public class MiniStorageBlock extends OpenableBlock implements SimpleWaterlogged
     public static final BooleanProperty SPARROW = BooleanProperty.create("sparrow");
     private final boolean hasRibbon;
 
-    public MiniStorageBlock(Properties settings, ResourceLocation openingStat, boolean hasRibbon) {
-        super(settings, openingStat, 1);
+    public MiniStorageBlock(Properties settings, boolean hasRibbon) {
+        super(settings, 1);
         this.registerDefaultState(this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(BlockStateProperties.WATERLOGGED, false).setValue(SPARROW, false));
         this.hasRibbon = hasRibbon;
     }

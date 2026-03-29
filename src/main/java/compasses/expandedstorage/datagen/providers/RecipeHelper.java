@@ -21,6 +21,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import compasses.expandedstorage.ExpandedStorage;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -358,32 +359,32 @@ public class RecipeHelper {
                               .requires(AllItems.WOOD_CHEST_REGISTRY.get())
                               .group(id(AllItems.OLD_WOOD_CHEST_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_ITEM, RecipeHelper.has(AllItems.WOOD_CHEST_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.id("wood_to_old_wood_chest"));
+                              .save(exporter, ExpandedStorage.id("wood_to_old_wood_chest"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.OLD_IRON_CHEST_REGISTRY.get())
                               .requires(AllItems.IRON_CHEST_REGISTRY.get())
                               .group(id(AllItems.OLD_IRON_CHEST_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_ITEM, RecipeHelper.has(AllItems.IRON_CHEST_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.id("iron_to_old_iron_chest"));
+                              .save(exporter, ExpandedStorage.id("iron_to_old_iron_chest"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.OLD_GOLD_CHEST_REGISTRY.get())
                               .requires(AllItems.GOLD_CHEST_REGISTRY.get())
                               .group(id(AllItems.OLD_GOLD_CHEST_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_ITEM, RecipeHelper.has(AllItems.GOLD_CHEST_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.id("gold_to_old_gold_chest"));
+                              .save(exporter, ExpandedStorage.id("gold_to_old_gold_chest"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.OLD_DIAMOND_CHEST_REGISTRY.get())
                               .requires(AllItems.DIAMOND_CHEST_REGISTRY.get())
                               .group(id(AllItems.OLD_DIAMOND_CHEST_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_ITEM, RecipeHelper.has(AllItems.DIAMOND_CHEST_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.id("diamond_to_old_diamond_chest"));
+                              .save(exporter, ExpandedStorage.id("diamond_to_old_diamond_chest"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.OLD_OBSIDIAN_CHEST_REGISTRY.get())
                               .requires(AllItems.OBSIDIAN_CHEST_REGISTRY.get())
                               .group(id(AllItems.OLD_OBSIDIAN_CHEST_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_ITEM, RecipeHelper.has(AllItems.OBSIDIAN_CHEST_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.id("obsidian_to_old_obsidian_chest"));
+                              .save(exporter, ExpandedStorage.id("obsidian_to_old_obsidian_chest"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.OLD_NETHERITE_CHEST_REGISTRY.get())
                               .requires(AllItems.NETHERITE_CHEST_REGISTRY.get())
                               .group(id(AllItems.OLD_NETHERITE_CHEST_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_ITEM, RecipeHelper.has(AllItems.NETHERITE_CHEST_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.id("netherite_to_old_netherite_chest"));
+                              .save(exporter, ExpandedStorage.id("netherite_to_old_netherite_chest"));
     }
 
     private void offerOldChestToChestRecipes(Consumer<FinishedRecipe> exporter) {
@@ -391,32 +392,32 @@ public class RecipeHelper {
                               .requires(AllItems.OLD_WOOD_CHEST_REGISTRY.get())
                               .group(id(AllItems.WOOD_CHEST_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_ITEM, RecipeHelper.has(AllItems.OLD_WOOD_CHEST_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.id("old_wood_to_wood_chest"));
+                              .save(exporter, ExpandedStorage.id("old_wood_to_wood_chest"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.IRON_CHEST_REGISTRY.get())
                               .requires(AllItems.OLD_IRON_CHEST_REGISTRY.get())
                               .group(id(AllItems.IRON_CHEST_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_ITEM, RecipeHelper.has(AllItems.OLD_IRON_CHEST_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.id("old_iron_to_iron_chest"));
+                              .save(exporter, ExpandedStorage.id("old_iron_to_iron_chest"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.GOLD_CHEST_REGISTRY.get())
                               .requires(AllItems.OLD_GOLD_CHEST_REGISTRY.get())
                               .group(id(AllItems.GOLD_CHEST_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_ITEM, RecipeHelper.has(AllItems.OLD_GOLD_CHEST_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.id("old_gold_to_gold_chest"));
+                              .save(exporter, ExpandedStorage.id("old_gold_to_gold_chest"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.DIAMOND_CHEST_REGISTRY.get())
                               .requires(AllItems.OLD_DIAMOND_CHEST_REGISTRY.get())
                               .group(id(AllItems.DIAMOND_CHEST_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_ITEM, RecipeHelper.has(AllItems.OLD_DIAMOND_CHEST_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.id("old_diamond_to_diamond_chest"));
+                              .save(exporter, ExpandedStorage.id("old_diamond_to_diamond_chest"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.OBSIDIAN_CHEST_REGISTRY.get())
                               .requires(AllItems.OLD_OBSIDIAN_CHEST_REGISTRY.get())
                               .group(id(AllItems.OBSIDIAN_CHEST_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_ITEM, RecipeHelper.has(AllItems.OLD_OBSIDIAN_CHEST_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.id("old_obsidian_to_obsidian_chest"));
+                              .save(exporter, ExpandedStorage.id("old_obsidian_to_obsidian_chest"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.NETHERITE_CHEST_REGISTRY.get())
                               .requires(AllItems.OLD_NETHERITE_CHEST_REGISTRY.get())
                               .group(id(AllItems.NETHERITE_CHEST_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_ITEM, RecipeHelper.has(AllItems.OLD_NETHERITE_CHEST_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.id("old_netherite_to_netherite_chest"));
+                              .save(exporter, ExpandedStorage.id("old_netherite_to_netherite_chest"));
     }
 
     private void offerBarrelRecipes(Consumer<FinishedRecipe> exporter) {
@@ -506,7 +507,7 @@ public class RecipeHelper {
                               .requires(AllItems.GREEN_MINI_PRESENT_REGISTRY.get())
                               .group(id(AllItems.RED_MINI_PRESENT_REGISTRY.get()))
                               .unlockedBy(Criterions.HAS_PREVIOUS_BLOCK, RecipeHelper.has(AllItems.GREEN_MINI_PRESENT_REGISTRY.get()))
-                              .save(exporter, compasses.expandedstorage.ForgeMain.MOD_ID + ":red_mini_present_cycle");
+                              .save(exporter, ExpandedStorage.MOD_ID + ":red_mini_present_cycle");
         shapedRecipe(AllItems.IRON_MINI_CHEST_REGISTRY.get(), RecipeCategory.MISC, 8, Criterions.HAS_ITEM, AllItems.WOOD_CHEST_REGISTRY.get())
                 .pattern(" I ")
                 .pattern("PBP")

@@ -7,7 +7,6 @@ import compasses.expandedstorage.block.entity.OldChestBlockEntity;
 import compasses.expandedstorage.block.entity.extendable.OpenableBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
@@ -53,8 +52,8 @@ public class ChestBlock extends AbstractChestBlock implements SimpleWaterloggedB
             box(1, 2, 1, 15, 16, 15)  // Single shape.
     };
 
-    public ChestBlock(Properties settings, ResourceLocation openingStat, int slotCount) {
-        super(settings, openingStat, slotCount);
+    public ChestBlock(Properties settings, int slotCount) {
+        super(settings, slotCount);
         this.registerDefaultState(this.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, false));
     }
 

@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
-import compasses.expandedstorage.ForgeMain;
+import compasses.expandedstorage.ExpandedStorage;
 /**
  * MountedStorageType for ES chest blocks.
  * Registers how Create should mount ES chests into contraptions.

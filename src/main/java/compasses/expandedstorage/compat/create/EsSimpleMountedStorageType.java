@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
-import compasses.expandedstorage.ForgeMain;
+import compasses.expandedstorage.ExpandedStorage;
 
 public class EsSimpleMountedStorageType extends SimpleMountedStorageType<EsSimpleMountedStorage> {
     public EsSimpleMountedStorageType() {

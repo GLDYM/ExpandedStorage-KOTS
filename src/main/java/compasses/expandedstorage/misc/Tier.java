@@ -1,6 +1,6 @@
 package compasses.expandedstorage.misc;
 
-import compasses.expandedstorage.ForgeMain;
+import compasses.expandedstorage.ExpandedStorage;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -8,13 +8,13 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import java.util.function.UnaryOperator;
 
 public enum Tier {
-    WOOD(ForgeMain.id("wood"), 27, UnaryOperator.identity(), UnaryOperator.identity()),
-    COPPER(ForgeMain.id("copper"), 45, BlockBehaviour.Properties::requiresCorrectToolForDrops, UnaryOperator.identity()),
-    IRON(ForgeMain.id("iron"), 54, BlockBehaviour.Properties::requiresCorrectToolForDrops, UnaryOperator.identity()),
-    GOLD(ForgeMain.id("gold"), 81, BlockBehaviour.Properties::requiresCorrectToolForDrops, UnaryOperator.identity()),
-    DIAMOND(ForgeMain.id("diamond"), 108, BlockBehaviour.Properties::requiresCorrectToolForDrops, UnaryOperator.identity()),
-    OBSIDIAN(ForgeMain.id("obsidian"), 108, BlockBehaviour.Properties::requiresCorrectToolForDrops, UnaryOperator.identity()),
-    NETHERITE(ForgeMain.id("netherite"), 135, BlockBehaviour.Properties::requiresCorrectToolForDrops, Item.Properties::fireResistant);
+    WOOD(ExpandedStorage.id("wood"), 27, UnaryOperator.identity(), UnaryOperator.identity()),
+    COPPER(ExpandedStorage.id("copper"), 45, BlockBehaviour.Properties::requiresCorrectToolForDrops, UnaryOperator.identity()),
+    IRON(ExpandedStorage.id("iron"), 54, BlockBehaviour.Properties::requiresCorrectToolForDrops, UnaryOperator.identity()),
+    GOLD(ExpandedStorage.id("gold"), 81, BlockBehaviour.Properties::requiresCorrectToolForDrops, UnaryOperator.identity()),
+    DIAMOND(ExpandedStorage.id("diamond"), 108, BlockBehaviour.Properties::requiresCorrectToolForDrops, UnaryOperator.identity()),
+    OBSIDIAN(ExpandedStorage.id("obsidian"), 108, BlockBehaviour.Properties::requiresCorrectToolForDrops, UnaryOperator.identity()),
+    NETHERITE(ExpandedStorage.id("netherite"), 135, BlockBehaviour.Properties::requiresCorrectToolForDrops, Item.Properties::fireResistant);
 
     private final ResourceLocation id;
     private final UnaryOperator<Item.Properties> itemSettings;

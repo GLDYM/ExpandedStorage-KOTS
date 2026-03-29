@@ -10,6 +10,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import compasses.expandedstorage.ExpandedStorage;
 
 public abstract sealed class RecipeTool permits RecipeTool.UpgradeTool, RecipeTool.MutatorTool {
     private final ResourceLocation toolId;
@@ -48,7 +49,7 @@ public abstract sealed class RecipeTool permits RecipeTool.UpgradeTool, RecipeTo
         private final String requiredName;
 
         public MutatorTool(String requiredName) {
-            super(compasses.expandedstorage.ForgeMain.id("storage_mutator"));
+            super(ExpandedStorage.id("storage_mutator"));
             this.requiredName = requiredName;
         }
 

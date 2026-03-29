@@ -11,12 +11,13 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import org.jetbrains.annotations.Nullable;
+import compasses.expandedstorage.ExpandedStorage;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class IsInTagCondition implements RecipeCondition {
-    public static final ResourceLocation NETWORK_ID = compasses.expandedstorage.ForgeMain.id("in_tag");
+    public static final ResourceLocation NETWORK_ID = ExpandedStorage.id("in_tag");
     private final TagKey<?> tagKey;
     private Set<Object> values;
 

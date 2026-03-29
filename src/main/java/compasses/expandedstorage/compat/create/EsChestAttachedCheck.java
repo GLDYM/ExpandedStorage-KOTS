@@ -5,7 +5,7 @@ import com.simibubi.create.api.contraption.BlockMovementChecks.CheckResult;
 import com.simibubi.create.api.contraption.BlockMovementChecks.AttachedCheck;
 import compasses.expandedstorage.api.EsChestType;
 import compasses.expandedstorage.block.AbstractChestBlock;
-import compasses.expandedstorage.ForgeMain;
+import compasses.expandedstorage.ExpandedStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
@@ -34,7 +34,7 @@ public class EsChestAttachedCheck implements AttachedCheck {
 
     public static void register() {
         BlockMovementChecks.registerAttachedCheck(new EsChestAttachedCheck());
-        ForgeMain.LOGGER.info("[ExpandedStorage] Loading Create Compat: ES Chest Attached Check");
+        ExpandedStorage.LOGGER.info("[ExpandedStorage] Loading Create Compat: ES Chest Attached Check");
     }
 }
 

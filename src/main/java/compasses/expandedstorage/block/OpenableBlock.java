@@ -1,7 +1,5 @@
 package compasses.expandedstorage.block;
 
-import compasses.expandedstorage.ForgeMain;
-
 import compasses.expandedstorage.block.entity.extendable.OpenableBlockEntity;
 import compasses.expandedstorage.inventory.OpenableInventoryProvider;
 import compasses.expandedstorage.inventory.context.BlockContext;
@@ -31,12 +29,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class OpenableBlock extends Block implements OpenableInventoryProvider<BlockContext>, EntityBlock {
-    private final ResourceLocation openingStat;
     private final int slotCount;
 
-    public OpenableBlock(Properties settings, ResourceLocation openingStat, int slotCount) {
+    public OpenableBlock(Properties settings, int slotCount) {
         super(settings);
-        this.openingStat = openingStat;
         this.slotCount = slotCount;
     }
 
@@ -92,7 +88,6 @@ public abstract class OpenableBlock extends Block implements OpenableInventoryPr
 
     @Override
     public void onInitialOpen(ServerPlayer player) {
-        player.awardStat(openingStat);
         if (!player.level().isClientSide()) {
             PiglinAi.angerNearbyPiglins(player, true);
         }

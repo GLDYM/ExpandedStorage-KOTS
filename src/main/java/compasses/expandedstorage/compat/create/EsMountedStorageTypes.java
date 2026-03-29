@@ -3,7 +3,7 @@ package compasses.expandedstorage.compat.create;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.api.contraption.storage.item.MountedItemStorageType;
 import com.tterrag.registrate.util.entry.RegistryEntry;
-import compasses.expandedstorage.ForgeMain;
+import compasses.expandedstorage.ExpandedStorage;
 import compasses.expandedstorage.block.AbstractChestBlock;
 import compasses.expandedstorage.compat.create.CreateCompat;
 import net.minecraft.core.registries.Registries;
@@ -25,6 +25,6 @@ public class EsMountedStorageTypes {
             .register();
 
     public static void register() {
-        ForgeMain.LOGGER.info("[ExpandedStorage] Loading Create Compat: Mounted Storage Types");
+        ExpandedStorage.LOGGER.info("[ExpandedStorage] Loading Create Compat: Mounted Storage Types");
     }
 }

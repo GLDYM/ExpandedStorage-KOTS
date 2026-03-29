@@ -10,6 +10,7 @@ import mezz.jei.api.registration.IGuiHandlerRegistration;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
+import compasses.expandedstorage.ExpandedStorage;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public final class JeiCompat implements IModPlugin {
     @NotNull
     @Override
     public ResourceLocation getPluginUid() {
-        return compasses.expandedstorage.ForgeMain.id("jei_plugin");
+        return ExpandedStorage.id("jei_plugin");
     }
 
     @Override

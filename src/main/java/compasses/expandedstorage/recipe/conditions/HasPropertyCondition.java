@@ -11,11 +11,12 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import org.jetbrains.annotations.Nullable;
+import compasses.expandedstorage.ExpandedStorage;
 
 import java.util.Map;
 
 public class HasPropertyCondition implements RecipeCondition {
-    public static final ResourceLocation NETWORK_ID = compasses.expandedstorage.ForgeMain.id("has_property");
+    public static final ResourceLocation NETWORK_ID = ExpandedStorage.id("has_property");
     private final ResourceLocation blockId;
     private final Map<Property<?>, Object> properties;
     private final boolean optional;

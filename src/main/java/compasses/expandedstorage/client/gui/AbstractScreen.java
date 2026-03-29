@@ -1,6 +1,7 @@
 package compasses.expandedstorage.client.gui;
 
 import compasses.expandedstorage.config.ModClientConfig;
+import compasses.expandedstorage.ExpandedStorage;
 
 import compasses.expandedstorage.client.function.ScreenSize;
 import compasses.expandedstorage.client.registry.AllClientKeyMappings;
@@ -31,13 +32,13 @@ public abstract class AbstractScreen extends AbstractContainerScreen<AbstractHan
         inventoryHeight = screenSize.height();
 
         if (this instanceof MiniStorageScreen) {
-            textureLocation = compasses.expandedstorage.ForgeMain.id("textures/gui/container/mini_chest_screen.png");
+            textureLocation = ExpandedStorage.id("textures/gui/container/mini_chest_screen.png");
             textureWidth = textureHeight = 176;
         } else if (this instanceof FakePickScreen) {
             textureLocation = null;
             textureWidth = textureHeight = 0;
         }else {
-            textureLocation = compasses.expandedstorage.ForgeMain.id("textures/gui/container/shared_" + inventoryWidth + "_" + inventoryHeight + ".png");
+            textureLocation = ExpandedStorage.id("textures/gui/container/shared_" + inventoryWidth + "_" + inventoryHeight + ".png");
 
             if (inventoryHeight == 3) {
                 textureWidth = 176;

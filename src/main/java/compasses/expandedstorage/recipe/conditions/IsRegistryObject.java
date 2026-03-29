@@ -8,9 +8,10 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
+import compasses.expandedstorage.ExpandedStorage;
 
 public class IsRegistryObject implements RecipeCondition {
-    public static final ResourceLocation NETWORK_ID = compasses.expandedstorage.ForgeMain.id("is_registry_object");
+    public static final ResourceLocation NETWORK_ID = ExpandedStorage.id("is_registry_object");
     private final Object value;
     private final ResourceLocation registry;
     private final ResourceLocation objectId;

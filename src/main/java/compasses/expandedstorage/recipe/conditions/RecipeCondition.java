@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import org.jetbrains.annotations.Nullable;
+import compasses.expandedstorage.ExpandedStorage;
 
 import java.util.Map;
 import java.util.Optional;
@@ -37,8 +38,8 @@ public interface RecipeCondition {
             IsRegistryObject.NETWORK_ID, IsRegistryObject::readFromBuffer,
             OrCondition.NETWORK_ID, OrCondition::readFromBuffer
     );
-    ResourceLocation IS_WOODEN_CHEST_ID = compasses.expandedstorage.ForgeMain.id("is_wooden_chest");
-    ResourceLocation IS_WOODEN_BARREL_ID = compasses.expandedstorage.ForgeMain.id("is_wooden_barrel");
+    ResourceLocation IS_WOODEN_CHEST_ID = ExpandedStorage.id("is_wooden_chest");
+    ResourceLocation IS_WOODEN_BARREL_ID = ExpandedStorage.id("is_wooden_barrel");
     IsInstanceOfCondition IS_WOODEN_CHEST = new IsInstanceOfCondition(ChestBlock.class);
     IsInstanceOfCondition IS_WOODEN_BARREL = new IsInstanceOfCondition(BarrelBlock.class);
 

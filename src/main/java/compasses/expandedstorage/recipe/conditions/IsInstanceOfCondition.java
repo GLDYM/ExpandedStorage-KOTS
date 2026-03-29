@@ -6,9 +6,10 @@ import compasses.expandedstorage.misc.Utils;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
+import compasses.expandedstorage.ExpandedStorage;
 
 public class IsInstanceOfCondition implements RecipeCondition {
-    public static final ResourceLocation NETWORK_ID = compasses.expandedstorage.ForgeMain.id("is_instance");
+    public static final ResourceLocation NETWORK_ID = ExpandedStorage.id("is_instance");
     private final Class<?> clazz;
 
     public IsInstanceOfCondition(Class<?> clazz) {

@@ -6,12 +6,13 @@ import compasses.expandedstorage.misc.Utils;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
+import compasses.expandedstorage.ExpandedStorage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AndCondition implements RecipeCondition {
-    public static final ResourceLocation NETWORK_ID = compasses.expandedstorage.ForgeMain.id("and");
+    public static final ResourceLocation NETWORK_ID = ExpandedStorage.id("and");
     private final RecipeCondition[] conditions;
 
     public AndCondition(RecipeCondition... conditions) {

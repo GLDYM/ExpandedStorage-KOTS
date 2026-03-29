@@ -3,6 +3,7 @@ package compasses.expandedstorage.client.registry;
 import compasses.expandedstorage.api.EsChestType;
 import net.minecraft.client.renderer.texture.MissingTextureAtlasSprite;
 import net.minecraft.resources.ResourceLocation;
+import compasses.expandedstorage.ExpandedStorage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,16 +28,16 @@ public final class ChestTextureRegistry {
     }
 
     private static void registerChestTextures(String blockId) {
-        ResourceLocation id = compasses.expandedstorage.ForgeMain.id(blockId);
+        ResourceLocation id = ExpandedStorage.id(blockId);
         registerChestTextures(
                 id,
-                compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_single"),
-                compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_left"),
-                compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_right"),
-                compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_top"),
-                compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_bottom"),
-                compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_front"),
-                compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_back")
+                ExpandedStorage.id("entity/chest/" + blockId + "_single"),
+                ExpandedStorage.id("entity/chest/" + blockId + "_left"),
+                ExpandedStorage.id("entity/chest/" + blockId + "_right"),
+                ExpandedStorage.id("entity/chest/" + blockId + "_top"),
+                ExpandedStorage.id("entity/chest/" + blockId + "_bottom"),
+                ExpandedStorage.id("entity/chest/" + blockId + "_front"),
+                ExpandedStorage.id("entity/chest/" + blockId + "_back")
         );
     }
 

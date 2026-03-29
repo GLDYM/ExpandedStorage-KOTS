@@ -1,6 +1,7 @@
 package compasses.expandedstorage.client.gui;
 
 import compasses.expandedstorage.config.ModClientConfig;
+import compasses.expandedstorage.ExpandedStorage;
 
 import com.google.common.collect.ImmutableSortedSet;
 import compasses.expandedstorage.client.gui.widget.PickButton;
@@ -25,15 +26,15 @@ public final class PickScreen extends Screen {
     public static final Component CURRENT_OPTION_TEXT = Component.translatable("screen.expandedstorage.current_option_notice").withStyle(ChatFormatting.GOLD);
     public static final Map<ResourceLocation, PickButton> BUTTON_SETTINGS = Map.of(
             ModClientConfig.PAGINATED_SCREEN_TYPE, new PickButton(
-                    compasses.expandedstorage.ForgeMain.id("textures/gui/page_button.png"),
+                    ExpandedStorage.id("textures/gui/page_button.png"),
                     Component.translatable("screen.expandedstorage.page_screen")
             ),
             ModClientConfig.SCROLLABLE_SCREEN_TYPE, new PickButton(
-                    compasses.expandedstorage.ForgeMain.id("textures/gui/scroll_button.png"),
+                    ExpandedStorage.id("textures/gui/scroll_button.png"),
                     Component.translatable("screen.expandedstorage.scroll_screen")
             ),
             ModClientConfig.SINGLE_SCREEN_TYPE, new PickButton(
-                    compasses.expandedstorage.ForgeMain.id("textures/gui/single_button.png"),
+                    ExpandedStorage.id("textures/gui/single_button.png"),
                     Component.translatable("screen.expandedstorage.single_screen"),
 
                     Component.translatable("screen.expandedstorage.off_screen_warning_1").withStyle(ChatFormatting.GRAY),

@@ -13,6 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import org.jetbrains.annotations.Nullable;
+import compasses.expandedstorage.ExpandedStorage;
 
 public final class AllClientItemProperties {
     private AllClientItemProperties() {
@@ -20,8 +21,8 @@ public final class AllClientItemProperties {
 
     public static void register(IEventBus modBus) {
         modBus.addListener((FMLClientSetupEvent event) -> {
-            ItemProperties.registerGeneric(compasses.expandedstorage.ForgeMain.id("sparrow"), (ClampedItemPropertyFunction) AllClientItemProperties::hasSparrowProperty);
-            ItemProperties.register(AllItems.STORAGE_MUTATOR_REGISTRY.get(), compasses.expandedstorage.ForgeMain.id("tool_mode"), (ClampedItemPropertyFunction) AllClientItemProperties::currentMutatorToolMode);
+            ItemProperties.registerGeneric(ExpandedStorage.id("sparrow"), (ClampedItemPropertyFunction) AllClientItemProperties::hasSparrowProperty);
+            ItemProperties.register(AllItems.STORAGE_MUTATOR_REGISTRY.get(), ExpandedStorage.id("tool_mode"), (ClampedItemPropertyFunction) AllClientItemProperties::currentMutatorToolMode);
         });
     }
 

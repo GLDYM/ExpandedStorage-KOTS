@@ -16,14 +16,15 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import compasses.expandedstorage.ExpandedStorage;
 
 public final class AllBlockEntityTypes {
-    public static final ResourceLocation BARREL_OBJECT_TYPE = compasses.expandedstorage.ForgeMain.id("barrel");
-    public static final ResourceLocation CHEST_OBJECT_TYPE = compasses.expandedstorage.ForgeMain.id("chest");
-    public static final ResourceLocation OLD_CHEST_OBJECT_TYPE = compasses.expandedstorage.ForgeMain.id("old_chest");
-    public static final ResourceLocation MINI_STORAGE_OBJECT_TYPE = compasses.expandedstorage.ForgeMain.id("mini_chest");
+    public static final ResourceLocation BARREL_OBJECT_TYPE = ExpandedStorage.id("barrel");
+    public static final ResourceLocation CHEST_OBJECT_TYPE = ExpandedStorage.id("chest");
+    public static final ResourceLocation OLD_CHEST_OBJECT_TYPE = ExpandedStorage.id("old_chest");
+    public static final ResourceLocation MINI_STORAGE_OBJECT_TYPE = ExpandedStorage.id("mini_chest");
 
-    private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, compasses.expandedstorage.ForgeMain.MOD_ID);
+    private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, ExpandedStorage.MOD_ID);
     private static final RegistryObject<BlockEntityType<ChestBlockEntity>> CHEST_BLOCK_ENTITY_TYPE = BLOCK_ENTITY_TYPES.register(CHEST_OBJECT_TYPE.getPath(), AllBlockEntityTypes::createChestBlockEntityType);
     private static final RegistryObject<BlockEntityType<OldChestBlockEntity>> OLD_CHEST_BLOCK_ENTITY_TYPE = BLOCK_ENTITY_TYPES.register(OLD_CHEST_OBJECT_TYPE.getPath(), AllBlockEntityTypes::createOldChestBlockEntityType);
     private static final RegistryObject<BlockEntityType<BarrelBlockEntity>> BARREL_BLOCK_ENTITY_TYPE = BLOCK_ENTITY_TYPES.register(BARREL_OBJECT_TYPE.getPath(), AllBlockEntityTypes::createBarrelBlockEntityType);

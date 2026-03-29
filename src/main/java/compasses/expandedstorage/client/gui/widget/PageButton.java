@@ -7,9 +7,10 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import compasses.expandedstorage.ExpandedStorage;
 
 public final class PageButton extends Button {
-    private static final ResourceLocation TEXTURE = compasses.expandedstorage.ForgeMain.id("textures/gui/page_buttons.png");
+    private static final ResourceLocation TEXTURE = ExpandedStorage.id("textures/gui/page_buttons.png");
     private final int textureOffset;
 
     public PageButton(int x, int y, int textureOffset, Component message, OnPress onPress) {

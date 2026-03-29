@@ -14,6 +14,7 @@ import net.minecraft.world.item.Items;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import compasses.expandedstorage.ExpandedStorage;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -22,7 +23,7 @@ import static net.minecraft.world.entity.EntityType.CHEST_MINECART;
 public final class TagProvider {
     public static final class Block extends BlockTagsProvider {
         public Block(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
-            super(output, lookupProvider, compasses.expandedstorage.ForgeMain.MOD_ID, existingFileHelper);
+            super(output, lookupProvider, ExpandedStorage.MOD_ID, existingFileHelper);
         }
 
         @Override
@@ -41,7 +42,7 @@ public final class TagProvider {
 
     public static final class Item extends ItemTagsProvider {
         public Item(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
-            super(output, lookupProvider, blockTagsProvider.contentsGetter(), compasses.expandedstorage.ForgeMain.MOD_ID, existingFileHelper);
+            super(output, lookupProvider, blockTagsProvider.contentsGetter(), ExpandedStorage.MOD_ID, existingFileHelper);
         }
 
         @Override
@@ -62,7 +63,7 @@ public final class TagProvider {
 
     public static final class EntityType extends EntityTypeTagsProvider {
         public EntityType(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
-            super(output, lookupProvider, compasses.expandedstorage.ForgeMain.MOD_ID, existingFileHelper);
+            super(output, lookupProvider, ExpandedStorage.MOD_ID, existingFileHelper);
         }
 
         @Override

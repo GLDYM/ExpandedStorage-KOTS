@@ -7,9 +7,10 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import compasses.expandedstorage.ExpandedStorage;
 
 public final class ScreenPickButton extends Button {
-    private static final ResourceLocation WARNING_TEXTURE = compasses.expandedstorage.ForgeMain.id("textures/gui/warning.png");
+    private static final ResourceLocation WARNING_TEXTURE = ExpandedStorage.id("textures/gui/warning.png");
     private final ResourceLocation texture;
     private final boolean showWarningSymbol;
     private final boolean isCurrentPreference;

@@ -6,7 +6,6 @@ import compasses.expandedstorage.inventory.context.BlockContext;
 import compasses.expandedstorage.registry.AllBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -23,8 +22,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class BarrelBlock extends OpenableBlock {
-    public BarrelBlock(Properties settings, ResourceLocation openingStat, int slotCount) {
-        super(settings, openingStat, slotCount);
+    public BarrelBlock(Properties settings, int slotCount) {
+        super(settings, slotCount);
         this.registerDefaultState(this.defaultBlockState().setValue(BlockStateProperties.FACING, Direction.UP).setValue(BlockStateProperties.OPEN, false));
     }
 

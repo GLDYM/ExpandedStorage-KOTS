@@ -14,22 +14,23 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import compasses.expandedstorage.ExpandedStorage;
 
 import java.util.List;
 import java.util.Objects;
 
 public final class AllEntityTypes {
-    private static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, compasses.expandedstorage.ForgeMain.MOD_ID);
-    private static final RegistryObject<EntityType<?>> WOOD_CHEST_MINECART_REGISTRY = register(compasses.expandedstorage.ForgeMain.id("wood_chest_minecart"));
-    private static final RegistryObject<EntityType<?>> PUMPKIN_CHEST_MINECART_REGISTRY = register(compasses.expandedstorage.ForgeMain.id("pumpkin_chest_minecart"));
-    private static final RegistryObject<EntityType<?>> PRESENT_MINECART_REGISTRY = register(compasses.expandedstorage.ForgeMain.id("present_minecart"));
-    private static final RegistryObject<EntityType<?>> BAMBOO_CHEST_MINECART_REGISTRY = register(compasses.expandedstorage.ForgeMain.id("bamboo_chest_minecart"));
-    private static final RegistryObject<EntityType<?>> MOSS_CHEST_MINECART_REGISTRY = register(compasses.expandedstorage.ForgeMain.id("moss_chest_minecart"));
-    private static final RegistryObject<EntityType<?>> IRON_CHEST_MINECART_REGISTRY = register(compasses.expandedstorage.ForgeMain.id("iron_chest_minecart"));
-    private static final RegistryObject<EntityType<?>> GOLD_CHEST_MINECART_REGISTRY = register(compasses.expandedstorage.ForgeMain.id("gold_chest_minecart"));
-    private static final RegistryObject<EntityType<?>> DIAMOND_CHEST_MINECART_REGISTRY = register(compasses.expandedstorage.ForgeMain.id("diamond_chest_minecart"));
-    private static final RegistryObject<EntityType<?>> OBSIDIAN_CHEST_MINECART_REGISTRY = register(compasses.expandedstorage.ForgeMain.id("obsidian_chest_minecart"));
-    private static final RegistryObject<EntityType<?>> NETHERITE_CHEST_MINECART_REGISTRY = register(compasses.expandedstorage.ForgeMain.id("netherite_chest_minecart"));
+    private static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, ExpandedStorage.MOD_ID);
+    private static final RegistryObject<EntityType<?>> WOOD_CHEST_MINECART_REGISTRY = ENTITY_TYPES.register("wood_chest_minecart", () -> createMinecartEntityType(ExpandedStorage.id("wood_chest_minecart")));
+    private static final RegistryObject<EntityType<?>> PUMPKIN_CHEST_MINECART_REGISTRY = ENTITY_TYPES.register("pumpkin_chest_minecart", () -> createMinecartEntityType(ExpandedStorage.id("pumpkin_chest_minecart")));
+    private static final RegistryObject<EntityType<?>> PRESENT_MINECART_REGISTRY = ENTITY_TYPES.register("present_minecart", () -> createMinecartEntityType(ExpandedStorage.id("present_minecart")));
+    private static final RegistryObject<EntityType<?>> BAMBOO_CHEST_MINECART_REGISTRY = ENTITY_TYPES.register("bamboo_chest_minecart", () -> createMinecartEntityType(ExpandedStorage.id("bamboo_chest_minecart")));
+    private static final RegistryObject<EntityType<?>> MOSS_CHEST_MINECART_REGISTRY = ENTITY_TYPES.register("moss_chest_minecart", () -> createMinecartEntityType(ExpandedStorage.id("moss_chest_minecart")));
+    private static final RegistryObject<EntityType<?>> IRON_CHEST_MINECART_REGISTRY = ENTITY_TYPES.register("iron_chest_minecart", () -> createMinecartEntityType(ExpandedStorage.id("iron_chest_minecart")));
+    private static final RegistryObject<EntityType<?>> GOLD_CHEST_MINECART_REGISTRY = ENTITY_TYPES.register("gold_chest_minecart", () -> createMinecartEntityType(ExpandedStorage.id("gold_chest_minecart")));
+    private static final RegistryObject<EntityType<?>> DIAMOND_CHEST_MINECART_REGISTRY = ENTITY_TYPES.register("diamond_chest_minecart", () -> createMinecartEntityType(ExpandedStorage.id("diamond_chest_minecart")));
+    private static final RegistryObject<EntityType<?>> OBSIDIAN_CHEST_MINECART_REGISTRY = ENTITY_TYPES.register("obsidian_chest_minecart", () -> createMinecartEntityType(ExpandedStorage.id("obsidian_chest_minecart")));
+    private static final RegistryObject<EntityType<?>> NETHERITE_CHEST_MINECART_REGISTRY = ENTITY_TYPES.register("netherite_chest_minecart", () -> createMinecartEntityType(ExpandedStorage.id("netherite_chest_minecart")));
 
     private AllEntityTypes() {
     }
@@ -51,10 +52,6 @@ public final class AllEntityTypes {
                 chestMinecartEntityType(OBSIDIAN_CHEST_MINECART_REGISTRY),
                 chestMinecartEntityType(NETHERITE_CHEST_MINECART_REGISTRY)
         );
-    }
-
-    private static RegistryObject<EntityType<?>> register(ResourceLocation id) {
-        return ENTITY_TYPES.register(id.getPath(), () -> createMinecartEntityType(id));
     }
 
     private static EntityType<ChestMinecart> createMinecartEntityType(ResourceLocation cartId) {

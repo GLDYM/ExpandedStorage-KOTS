@@ -157,12 +157,12 @@ dependencies {
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
     //implementation fg.deobf(group: 'localmods', name: 'expandedstorage-10.3.0-beta.5+1.20.1-forge', version: '1.0', ext: 'jar')
     implementation fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
-	implementation fg.deobf("dev.emi:emi-forge:${emi_version}")
-    implementation fg.deobf("tschipp.carryon:carryon-forge-${minecraft_version}:${carryon_version}")
-    implementation fg.deobf("curse.maven:quark-243121:${quark_version}")
-    implementation fg.deobf("curse.maven:inventory-profiles-next-495267:${ipn_version}")
-    implementation(fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false })
-    implementation(fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}"))
+	compileOnly fg.deobf("dev.emi:emi-forge:${emi_version}")
+    compileOnly fg.deobf("tschipp.carryon:carryon-forge-${minecraft_version}:${carryon_version}")
+    compileOnly fg.deobf("curse.maven:quark-243121:${quark_version}")
+    compileOnly fg.deobf("curse.maven:inventory-profiles-next-495267:${ipn_version}")
+    compileOnly fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}:slim")
+    compileOnly fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

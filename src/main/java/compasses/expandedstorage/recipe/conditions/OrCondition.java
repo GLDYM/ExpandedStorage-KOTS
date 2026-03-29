@@ -7,12 +7,13 @@ import compasses.expandedstorage.misc.Utils;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
+import compasses.expandedstorage.ExpandedStorage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class OrCondition implements RecipeCondition {
-    public static final ResourceLocation NETWORK_ID = compasses.expandedstorage.ForgeMain.id("or");
+    public static final ResourceLocation NETWORK_ID = ExpandedStorage.id("or");
     private final RecipeCondition[] conditions;
 
     public OrCondition(RecipeCondition... conditions) {

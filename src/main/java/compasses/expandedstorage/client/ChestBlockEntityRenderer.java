@@ -34,16 +34,17 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import compasses.expandedstorage.ExpandedStorage;
 
 public final class ChestBlockEntityRenderer implements BlockEntityRenderer<ChestBlockEntity> {
-    public static final ModelLayerLocation SINGLE_LAYER = new ModelLayerLocation(compasses.expandedstorage.ForgeMain.id("single_chest"), "main");
-    public static final ModelLayerLocation LEFT_LAYER = new ModelLayerLocation(compasses.expandedstorage.ForgeMain.id("left_chest"), "main");
-    public static final ModelLayerLocation RIGHT_LAYER = new ModelLayerLocation(compasses.expandedstorage.ForgeMain.id("right_chest"), "main");
-    public static final ModelLayerLocation TOP_LAYER = new ModelLayerLocation(compasses.expandedstorage.ForgeMain.id("top_chest"), "main");
-    public static final ModelLayerLocation BOTTOM_LAYER = new ModelLayerLocation(compasses.expandedstorage.ForgeMain.id("bottom_chest"), "main");
-    public static final ModelLayerLocation FRONT_LAYER = new ModelLayerLocation(compasses.expandedstorage.ForgeMain.id("front_chest"), "main");
-    public static final ModelLayerLocation BACK_LAYER = new ModelLayerLocation(compasses.expandedstorage.ForgeMain.id("back_chest"), "main");
-    private static final BlockState DEFAULT_STATE = BuiltInRegistries.BLOCK.get(compasses.expandedstorage.ForgeMain.id("wood_chest")).defaultBlockState();
+    public static final ModelLayerLocation SINGLE_LAYER = new ModelLayerLocation(ExpandedStorage.id("single_chest"), "main");
+    public static final ModelLayerLocation LEFT_LAYER = new ModelLayerLocation(ExpandedStorage.id("left_chest"), "main");
+    public static final ModelLayerLocation RIGHT_LAYER = new ModelLayerLocation(ExpandedStorage.id("right_chest"), "main");
+    public static final ModelLayerLocation TOP_LAYER = new ModelLayerLocation(ExpandedStorage.id("top_chest"), "main");
+    public static final ModelLayerLocation BOTTOM_LAYER = new ModelLayerLocation(ExpandedStorage.id("bottom_chest"), "main");
+    public static final ModelLayerLocation FRONT_LAYER = new ModelLayerLocation(ExpandedStorage.id("front_chest"), "main");
+    public static final ModelLayerLocation BACK_LAYER = new ModelLayerLocation(ExpandedStorage.id("back_chest"), "main");
+    private static final BlockState DEFAULT_STATE = BuiltInRegistries.BLOCK.get(ExpandedStorage.id("wood_chest")).defaultBlockState();
 
     private static final Property<ChestBlockEntity, Float2FloatFunction> LID_OPENNESS_FUNCTION_GETTER = new Property<>() {
         @Override

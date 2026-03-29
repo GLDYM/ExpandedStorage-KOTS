@@ -1,4 +1,4 @@
-package compasses.expandedstorage.registry.content;
+package compasses.expandedstorage.registry.mutator;
 
 import compasses.expandedstorage.item.MutationMode;
 import compasses.expandedstorage.item.ToolUsageResult;
@@ -12,12 +12,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
-final class ThemeSwapModule {
-    private ThemeSwapModule() {
+public final class ThemeSwapMutatorBehaviourRegistry {
+    private ThemeSwapMutatorBehaviourRegistry() {
     }
 
-    static void register() {
-        BlockMutatorBehaviours.register(ThemeSwapModule::alwaysTrue, MutationMode.SWAP_THEME, ThemeSwapModule::swapThemeMutation);
+    public static void register() {
+        BlockMutatorBehaviours.register(ThemeSwapMutatorBehaviourRegistry::alwaysTrue, MutationMode.SWAP_THEME, ThemeSwapMutatorBehaviourRegistry::swapThemeMutation);
     }
 
     private static boolean alwaysTrue(Block block) {

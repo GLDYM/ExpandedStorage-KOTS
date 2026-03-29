@@ -2,11 +2,9 @@
   "required": true,
   "package": "compasses.expandedstorage.mixin",
   "plugin": "compasses.expandedstorage.MixinPlugin",
-  "compatibilityLevel": "JAVA_16",
+  "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "common.BlockEntityIdFix",
     "common.CarryOnCompatFix",
-    "common.DataFixerEntrypoint",
     "common.SparrowBlockFix",
     "common.SparrowItemIdFix",
     "common.SpectatorBlockInventoryViewingFix",

@@ -1,7 +1,6 @@
 package compasses.expandedstorage.inventory.handler;
 
-import compasses.expandedstorage.ForgeMain;
-
+import compasses.expandedstorage.client.helpers.InventoryOpeningApi;
 import compasses.expandedstorage.misc.Utils;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -23,7 +22,7 @@ public final class AbstractHandler extends AbstractContainerMenu {
     private final ResourceLocation forcedScreenType;
 
     public AbstractHandler(int syncId, Container inventory, Inventory playerInventory, ResourceLocation forcedScreenType) {
-        super(ForgeMain.screenHandlerType(), syncId);
+        super(InventoryOpeningApi.screenHandlerType(), syncId);
         this.inventory = inventory;
         this.forcedScreenType = forcedScreenType;
         inventory.startOpen(playerInventory.player);

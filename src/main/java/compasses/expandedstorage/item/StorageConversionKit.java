@@ -1,11 +1,12 @@
 package compasses.expandedstorage.item;
 
-import compasses.expandedstorage.ForgeMain;
+import compasses.expandedstorage.ExpandedStorage;
 
 import compasses.expandedstorage.misc.Utils;
 import compasses.expandedstorage.recipe.BlockConversionRecipe;
 import compasses.expandedstorage.recipe.ConversionRecipeManager;
 import compasses.expandedstorage.recipe.EntityConversionRecipe;
+import compasses.expandedstorage.registry.AllBlocks;
 import compasses.expandedstorage.registry.AllItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -24,13 +25,15 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.Tags;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public final class StorageConversionKit extends Item implements EntityInteractableItem {
-    private static final TagKey<EntityType<?>> ES_WOODEN_CHEST_MINECARTS = TagKey.create(Registries.ENTITY_TYPE, compasses.expandedstorage.ForgeMain.id("wooden_chest_minecarts"));
+    private static final TagKey<EntityType<?>> ES_WOODEN_CHEST_MINECARTS = TagKey.create(Registries.ENTITY_TYPE, ExpandedStorage.id("wooden_chest_minecarts"));
     public static final ToolUsageResult NOT_ENOUGH_UPGRADES = ToolUsageResult.fail();
     private final Component instructionsFirst;
     private final Component instructionsSecond;
@@ -70,7 +73,7 @@ public final class StorageConversionKit extends Item implements EntityInteractab
                     }
                 } else {
                     if (!level.isClientSide()) {
-                        if (this == AllItems.WOOD_TO_COPPER_CONVERSION_KIT_REGISTRY.get() && ForgeMain.isWoodenChest(state)) {
+                        if (this == AllItems.WOOD_TO_COPPER_CONVERSION_KIT_REGISTRY.get() && (state.is(AllBlocks.OLD_WOOD_CHEST_REGISTRY.get()) || state.is(Tags.Blocks.CHESTS_WOODEN))) {
                             player.displayClientMessage(Component.translatable("tooltip.expandedstorage.conversion_kit.copper_chests_not_implemented"), true);
                         } else {
                             player.displayClientMessage(Component.translatable("tooltip.expandedstorage.conversion_kit.not_work_on_block"), true);

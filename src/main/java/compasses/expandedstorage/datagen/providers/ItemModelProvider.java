@@ -5,10 +5,11 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
+import compasses.expandedstorage.ExpandedStorage;
 
 public final class ItemModelProvider extends net.minecraftforge.client.model.generators.ItemModelProvider {
     public ItemModelProvider(PackOutput output, ExistingFileHelper fileHelper) {
-        super(output, compasses.expandedstorage.ForgeMain.MOD_ID, fileHelper);
+        super(output, ExpandedStorage.MOD_ID, fileHelper);
     }
 
     @Override
@@ -51,12 +52,12 @@ public final class ItemModelProvider extends net.minecraftforge.client.model.gen
 
 //    @SuppressWarnings("ConstantConditions")
 //    private void oldChest(BlockItem item) {
-//        this.getBuilder(ForgeRegistries.ITEMS.getKey(item).getPath()).parent(this.getExistingFile(compasses.expandedstorage.ForgeMain.id("block/" + ForgeRegistries.BLOCKS.getKey(item.getBlock()).getPath() + "/single")));
+//        this.getBuilder(ForgeRegistries.ITEMS.getKey(item).getPath()).parent(this.getExistingFile(ExpandedStorage.id("block/" + ForgeRegistries.BLOCKS.getKey(item.getBlock()).getPath() + "/single")));
 //    }
 
 //    @SuppressWarnings("ConstantConditions")
 //    private void barrel(BlockItem item) {
-//        this.getBuilder(ForgeRegistries.ITEMS.getKey(item).getPath()).parent(this.getExistingFile(compasses.expandedstorage.ForgeMain.id("block/" + ForgeRegistries.BLOCKS.getKey(item.getBlock()).getPath())));
+//        this.getBuilder(ForgeRegistries.ITEMS.getKey(item).getPath()).parent(this.getExistingFile(ExpandedStorage.id("block/" + ForgeRegistries.BLOCKS.getKey(item.getBlock()).getPath())));
 //    }
 
     @Override

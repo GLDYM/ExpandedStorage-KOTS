@@ -1,7 +1,5 @@
 package compasses.expandedstorage.compat.create;
 
-import compasses.expandedstorage.ForgeMain;
-
 import com.mojang.serialization.Codec;
 import com.simibubi.create.api.contraption.storage.item.MountedItemStorage;
 import com.simibubi.create.api.contraption.storage.item.MountedItemStorageType;
@@ -14,6 +12,7 @@ import compasses.expandedstorage.block.AbstractChestBlock;
 import compasses.expandedstorage.block.OpenableBlock;
 import compasses.expandedstorage.block.entity.extendable.InventoryBlockEntity;
 import compasses.expandedstorage.compat.create.EsMountedStorageTypes;
+import compasses.expandedstorage.client.helpers.InventoryOpeningApi;
 import compasses.expandedstorage.inventory.handler.AbstractHandler;
 
 import net.minecraft.core.BlockPos;
@@ -80,7 +79,7 @@ public class EsSimpleMountedStorage extends SimpleMountedStorage {
                 ((OpenableBlock)info.state().getBlock()).getForcedScreenType() : null;
 
 
-        ForgeMain.openScreenHandler(player, container, title, forcedScreenType);
+        InventoryOpeningApi.openScreenHandler(player, container, title, forcedScreenType);
         Vec3 worldPos = contraption.entity.toGlobalVector(Vec3.atCenterOf(info.pos()), 0);
         playOpeningSound(player.serverLevel(), worldPos);
         return true;

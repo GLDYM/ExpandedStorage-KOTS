@@ -11,7 +11,6 @@ import compasses.expandedstorage.inventory.OpenableInventories;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.WorldlyContainerHolder;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -53,8 +52,8 @@ public class AbstractChestBlock extends OpenableBlock implements WorldlyContaine
         }
     };
 
-    public AbstractChestBlock(Properties settings, ResourceLocation openingStat, int slotCount) {
-        super(settings, openingStat, slotCount);
+    public AbstractChestBlock(Properties settings, int slotCount) {
+        super(settings, slotCount);
         this.registerDefaultState(this.defaultBlockState()
                                       .setValue(AbstractChestBlock.CURSED_CHEST_TYPE, EsChestType.SINGLE)
                                       .setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));

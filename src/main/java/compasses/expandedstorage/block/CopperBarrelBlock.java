@@ -2,7 +2,6 @@ package compasses.expandedstorage.block;
 
 import compasses.expandedstorage.block.misc.CopperBlockHelper;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.WeatheringCopper;
@@ -14,8 +13,8 @@ import java.util.Optional;
 public final class CopperBarrelBlock extends BarrelBlock implements WeatheringCopper {
     private final WeatherState weatherState;
 
-    public CopperBarrelBlock(Properties settings, ResourceLocation openingStat, int slotCount, WeatheringCopper.WeatherState weatherState) {
-        super(settings, openingStat, slotCount);
+    public CopperBarrelBlock(Properties settings, int slotCount, WeatheringCopper.WeatherState weatherState) {
+        super(settings, slotCount);
         this.weatherState = weatherState;
     }
 
