@@ -1,6 +1,5 @@
 package compasses.expandedstorage.registry;
 
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.misc.Utils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -19,7 +18,7 @@ public final class AllCreativeTabs {
                         helper.register(compasses.expandedstorage.ForgeMain.id("tab"), CreativeModeTab.builder()
                                 .icon(() -> ForgeRegistries.ITEMS.getValue(compasses.expandedstorage.ForgeMain.id("netherite_chest")).getDefaultInstance())
                                 .displayItems((itemDisplayParameters, output) ->
-                                        CommonMain.generateDisplayItems(itemDisplayParameters, stack ->
+                                        DisplayItems.generate(stack ->
                                                 output.accept(stack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS)))
                                 .title(Component.translatable("itemGroup.expandedstorage.tab"))
                                 .build())));

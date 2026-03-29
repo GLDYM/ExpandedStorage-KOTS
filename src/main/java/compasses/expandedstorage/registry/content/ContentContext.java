@@ -1,11 +1,9 @@
 package compasses.expandedstorage.registry.content;
 
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.misc.Tier;
 import compasses.expandedstorage.misc.Utils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
@@ -16,7 +14,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 final class ContentContext {
     final Tier woodTier = Tier.WOOD;
@@ -48,8 +45,5 @@ final class ContentContext {
         return statId;
     }
 
-    void defineBaseItems(Map<ResourceLocation, Item> baseItems) {
-        CommonMain.defineTierUpgradePath(baseItems, manuallyWrapTooltips, woodTier, copperTier, ironTier, goldTier, diamondTier, obsidianTier, netheriteTier);
-    }
 }
 

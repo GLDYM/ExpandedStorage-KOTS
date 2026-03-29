@@ -1,7 +1,6 @@
 package compasses.expandedstorage.registry.content;
 
 import com.google.common.collect.ImmutableSet;
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.api.EsChestType;
 import compasses.expandedstorage.block.AbstractChestBlock;
 import compasses.expandedstorage.block.ChestBlock;
@@ -19,6 +18,8 @@ import compasses.expandedstorage.item.ForgeChestMinecartItem;
 import compasses.expandedstorage.item.MutationMode;
 import compasses.expandedstorage.item.ToolUsageResult;
 import compasses.expandedstorage.misc.Tier;
+import compasses.expandedstorage.registry.AllBlockEntityTypes;
+import compasses.expandedstorage.registry.BlockMutatorBehaviours;
 import compasses.expandedstorage.misc.Utils;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -79,6 +80,12 @@ final class ChestContentModule {
     private ChestContentModule() {
     }
 
+    static void bootstrap(ContentContext context) {
+        registerChestStats(context);
+        registerOldChestStats(context);
+        registerMutationBehaviours();
+    }
+
     static Result create(ContentContext context) {
         Map<ResourceLocation, ChestBlock> chestBlocks = new LinkedHashMap<>(9);
         Map<ResourceLocation, BlockItem> chestItems = new LinkedHashMap<>(9);
@@ -91,9 +98,6 @@ final class ChestContentModule {
         var oldChestContext = new OldChestRegistrationContext(oldChestBlocks, oldChestItems);
 
         registerModernChests(chestContext);
-        if (context.client) {
-            registerChestTextures(chestBlocks);
-        }
         BlockEntityType<ChestBlockEntity> chestBlockEntityType = registerChestBlockEntityType(chestBlocks);
 
         registerOldChests(context, oldChestContext);
@@ -111,6 +115,28 @@ final class ChestContentModule {
                 oldChestItems,
                 oldChestBlockEntityType
         );
+    }
+
+    private static void registerChestStats(ContentContext context) {
+        context.stat("open_wood_chest");
+        context.stat("open_pumpkin_chest");
+        context.stat("open_present");
+        context.stat("open_bamboo_chest");
+        context.stat("open_moss_chest");
+        context.stat("open_iron_chest");
+        context.stat("open_gold_chest");
+        context.stat("open_diamond_chest");
+        context.stat("open_obsidian_chest");
+        context.stat("open_netherite_chest");
+    }
+
+    private static void registerOldChestStats(ContentContext context) {
+        context.stat("open_old_wood_chest");
+        context.stat("open_old_iron_chest");
+        context.stat("open_old_gold_chest");
+        context.stat("open_old_diamond_chest");
+        context.stat("open_old_obsidian_chest");
+        context.stat("open_old_netherite_chest");
     }
 
     private static void registerModernChests(ChestRegistrationContext context) {
@@ -151,10 +177,9 @@ final class ChestContentModule {
 
     private static BlockEntityType<ChestBlockEntity> registerChestBlockEntityType(Map<ResourceLocation, ChestBlock> chestBlocks) {
         BlockEntityType<ChestBlockEntity> value = BlockEntityType.Builder.of(
-                (pos, state) -> new ChestBlockEntity(CommonMain.getChestBlockEntityType(), pos, state, ((OpenableBlock) state.getBlock()).getBlockId(), ChestItemAccess::new, BasicLockable::new),
+                (pos, state) -> new ChestBlockEntity(AllBlockEntityTypes.chestBlockEntityType(), pos, state, ((OpenableBlock) state.getBlock()).getBlockId(), ChestItemAccess::new, BasicLockable::new),
                 chestBlocks.values().toArray(ChestBlock[]::new)
-        ).build(Util.fetchChoiceType(References.BLOCK_ENTITY, CommonMain.CHEST_OBJECT_TYPE.toString()));
-        CommonMain.setChestBlockEntityType(value);
+        ).build(Util.fetchChoiceType(References.BLOCK_ENTITY, AllBlockEntityTypes.CHEST_OBJECT_TYPE.toString()));
         return value;
     }
 
@@ -176,10 +201,9 @@ final class ChestContentModule {
 
     private static BlockEntityType<OldChestBlockEntity> registerOldChestBlockEntityType(Map<ResourceLocation, AbstractChestBlock> oldChestBlocks) {
         BlockEntityType<OldChestBlockEntity> value = BlockEntityType.Builder.of(
-                (pos, state) -> new OldChestBlockEntity(CommonMain.getOldChestBlockEntityType(), pos, state, ((OpenableBlock) state.getBlock()).getBlockId(), ChestItemAccess::new, BasicLockable::new),
+                (pos, state) -> new OldChestBlockEntity(AllBlockEntityTypes.oldChestBlockEntityType(), pos, state, ((OpenableBlock) state.getBlock()).getBlockId(), ChestItemAccess::new, BasicLockable::new),
                 oldChestBlocks.values().toArray(AbstractChestBlock[]::new)
-        ).build(Util.fetchChoiceType(References.BLOCK_ENTITY, CommonMain.OLD_CHEST_OBJECT_TYPE.toString()));
-        CommonMain.setOldChestBlockEntityType(value);
+        ).build(Util.fetchChoiceType(References.BLOCK_ENTITY, AllBlockEntityTypes.OLD_CHEST_OBJECT_TYPE.toString()));
         return value;
     }
 
@@ -216,22 +240,6 @@ final class ChestContentModule {
         context.cartItems().put(cartId, cartItem);
     }
 
-    private static void registerChestTextures(Map<ResourceLocation, ChestBlock> chestBlocks) {
-        for (ResourceLocation id : chestBlocks.keySet()) {
-            String blockId = id.getPath();
-            CommonMain.declareChestTextures(
-                    id,
-                    compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_single"),
-                    compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_left"),
-                    compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_right"),
-                    compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_top"),
-                    compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_bottom"),
-                    compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_front"),
-                    compasses.expandedstorage.ForgeMain.id("entity/chest/" + blockId + "_back")
-            );
-        }
-    }
-
     private static void addOldChest(OldChestRegistrationContext context, ResourceLocation id, ResourceLocation stat, Tier tier, Properties settings) {
         AbstractChestBlock block = new AbstractChestBlock(tier.getBlockSettings().apply(settings), stat, tier.getSlotCount());
         BlockItem item = new BlockItem(block, tier.getItemSettings().apply(new Item.Properties()));
@@ -240,9 +248,9 @@ final class ChestContentModule {
     }
 
     private static void registerMutationBehaviours() {
-        CommonMain.registerMutationBehaviour(ChestContentModule::isChestBlock, MutationMode.MERGE, ChestContentModule::mergeChestMutation);
-        CommonMain.registerMutationBehaviour(ChestContentModule::isChestBlock, MutationMode.SPLIT, ChestContentModule::splitChestMutation);
-        CommonMain.registerMutationBehaviour(ChestContentModule::isChestBlock, MutationMode.ROTATE, ChestContentModule::rotateChestMutation);
+        BlockMutatorBehaviours.register(ChestContentModule::isChestBlock, MutationMode.MERGE, ChestContentModule::mergeChestMutation);
+        BlockMutatorBehaviours.register(ChestContentModule::isChestBlock, MutationMode.SPLIT, ChestContentModule::splitChestMutation);
+        BlockMutatorBehaviours.register(ChestContentModule::isChestBlock, MutationMode.ROTATE, ChestContentModule::rotateChestMutation);
     }
 
     private static boolean isChestBlock(Block block) {

@@ -1,6 +1,5 @@
 package compasses.expandedstorage.registry.content;
 
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.block.CopperMiniStorageBlock;
 import compasses.expandedstorage.block.MiniStorageBlock;
 import compasses.expandedstorage.block.OpenableBlock;
@@ -11,6 +10,8 @@ import compasses.expandedstorage.item.MiniStorageBlockItem;
 import compasses.expandedstorage.item.MutationMode;
 import compasses.expandedstorage.item.ToolUsageResult;
 import compasses.expandedstorage.misc.Tier;
+import compasses.expandedstorage.registry.AllBlockEntityTypes;
+import compasses.expandedstorage.registry.BlockMutatorBehaviours;
 import compasses.expandedstorage.misc.Utils;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -48,6 +49,30 @@ final class MiniStorageContentModule {
     }
 
     private MiniStorageContentModule() {
+    }
+
+    static void bootstrap(ContentContext context) {
+        context.stat("open_wood_mini_chest");
+        context.stat("open_pumpkin_mini_chest");
+        context.stat("open_red_mini_present");
+        context.stat("open_white_mini_present");
+        context.stat("open_candy_cane_mini_present");
+        context.stat("open_green_mini_present");
+        context.stat("open_lavender_mini_present");
+        context.stat("open_pink_amethyst_mini_present");
+        context.stat("open_iron_mini_chest");
+        context.stat("open_gold_mini_chest");
+        context.stat("open_diamond_mini_chest");
+        context.stat("open_obsidian_mini_chest");
+        context.stat("open_netherite_mini_chest");
+        context.stat("open_mini_barrel");
+        context.stat("open_copper_mini_barrel");
+        context.stat("open_iron_mini_barrel");
+        context.stat("open_gold_mini_barrel");
+        context.stat("open_diamond_mini_barrel");
+        context.stat("open_obsidian_mini_barrel");
+        context.stat("open_netherite_mini_barrel");
+        BlockMutatorBehaviours.register(MiniStorageContentModule::isMiniStorageBlock, MutationMode.ROTATE, MiniStorageContentModule::rotateMiniStorageMutation);
     }
 
     static Result create(ContentContext context) {
@@ -121,11 +146,10 @@ final class MiniStorageContentModule {
         addMiniStorage(miniContext, compasses.expandedstorage.ForgeMain.id("netherite_mini_barrel"), netheriteBarrelStat, context.netheriteTier, netheriteBarrelSettings, false);
 
         BlockEntityType<MiniStorageBlockEntity> blockEntityType = BlockEntityType.Builder.of(
-                (pos, state) -> new MiniStorageBlockEntity(CommonMain.getMiniStorageBlockEntityType(), pos, state, ((OpenableBlock) state.getBlock()).getBlockId(), GenericItemAccess::new, BasicLockable::new),
+            (pos, state) -> new MiniStorageBlockEntity(AllBlockEntityTypes.miniStorageBlockEntityType(), pos, state, ((OpenableBlock) state.getBlock()).getBlockId(), GenericItemAccess::new, BasicLockable::new),
                 miniStorageBlocks.values().toArray(MiniStorageBlock[]::new)
-        ).build(Util.fetchChoiceType(References.BLOCK_ENTITY, CommonMain.MINI_STORAGE_OBJECT_TYPE.toString()));
-        CommonMain.setMiniStorageBlockEntityType(blockEntityType);
-        CommonMain.registerMutationBehaviour(MiniStorageContentModule::isMiniStorageBlock, MutationMode.ROTATE, MiniStorageContentModule::rotateMiniStorageMutation);
+        ).build(Util.fetchChoiceType(References.BLOCK_ENTITY, AllBlockEntityTypes.MINI_STORAGE_OBJECT_TYPE.toString()));
+        BlockMutatorBehaviours.register(MiniStorageContentModule::isMiniStorageBlock, MutationMode.ROTATE, MiniStorageContentModule::rotateMiniStorageMutation);
         return new Result(miniStorageBlocks, miniStorageItems, blockEntityType);
     }
 

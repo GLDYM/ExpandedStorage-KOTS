@@ -2,7 +2,6 @@ package compasses.expandedstorage.client.helpers;
 
 import compasses.expandedstorage.ForgeMain;
 
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.inventory.OpenableInventory;
 import compasses.expandedstorage.inventory.OpenableInventoryProvider;
 import compasses.expandedstorage.inventory.context.BaseContext;

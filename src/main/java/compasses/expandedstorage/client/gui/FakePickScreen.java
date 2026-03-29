@@ -1,9 +1,8 @@
 package compasses.expandedstorage.client.gui;
 
-import compasses.expandedstorage.ForgeClient;
+import compasses.expandedstorage.config.ModClientConfig;
 
 import com.google.common.collect.ImmutableSortedSet;
-import compasses.expandedstorage.CommonClient;
 import compasses.expandedstorage.client.gui.widget.PickButton;
 import compasses.expandedstorage.client.gui.widget.ScreenPickButton;
 import compasses.expandedstorage.client.function.ScreenSize;
@@ -49,7 +48,7 @@ public final class FakePickScreen extends AbstractScreen {
     @Override
     @SuppressWarnings("ConstantConditions")
     public void onClose() {
-        ResourceLocation preference = ForgeClient.getPreferredScreenType();
+        ResourceLocation preference = ModClientConfig.getPreferredScreenType();
         if (preference == null) {
             minecraft.player.closeContainer();
         } else {
@@ -67,7 +66,7 @@ public final class FakePickScreen extends AbstractScreen {
     @Override
     protected void init() {
         super.init();
-        ResourceLocation preference = ForgeClient.getPreferredScreenType();
+        ResourceLocation preference = ModClientConfig.getPreferredScreenType();
         int choices = options.size();
         int columns = Math.min(Math.floorDiv(width, 96), choices);
         int innerPadding = Math.min((width - columns * 96) / (columns + 1), 20); // 20 is smallest gap for any screen.
@@ -95,7 +94,7 @@ public final class FakePickScreen extends AbstractScreen {
     }
 
     private void updatePlayerPreference(ResourceLocation selection) {
-        ForgeClient.setPreferredScreenType(selection);
+        ModClientConfig.setPreferredScreenType(selection);
         this.onClose();
     }
 

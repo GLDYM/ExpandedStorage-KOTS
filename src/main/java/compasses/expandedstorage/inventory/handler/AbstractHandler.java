@@ -2,7 +2,6 @@ package compasses.expandedstorage.inventory.handler;
 
 import compasses.expandedstorage.ForgeMain;
 
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.misc.Utils;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;

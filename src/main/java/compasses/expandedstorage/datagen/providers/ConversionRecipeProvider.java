@@ -35,32 +35,32 @@ public abstract class ConversionRecipeProvider implements DataProvider {
     protected static final RecipeTool UNNAMED_MUTATOR = new RecipeTool.MutatorTool(null);
     protected static final RecipeTool SPARROW_MUTATOR = new RecipeTool.MutatorTool("sparrow");
 
-    protected static final RecipeTool WOOD_TO_COPPER_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.WOOD_TO_COPPER_CONVERSION_KIT);
-    protected static final RecipeTool WOOD_TO_IRON_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.WOOD_TO_IRON_CONVERSION_KIT);
-    protected static final RecipeTool WOOD_TO_GOLD_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.WOOD_TO_GOLD_CONVERSION_KIT);
-    protected static final RecipeTool WOOD_TO_DIAMOND_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.WOOD_TO_DIAMOND_CONVERSION_KIT);
-    protected static final RecipeTool WOOD_TO_OBSIDIAN_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.WOOD_TO_OBSIDIAN_CONVERSION_KIT);
-    protected static final RecipeTool WOOD_TO_NETHERITE_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.WOOD_TO_NETHERITE_CONVERSION_KIT);
+    protected static final RecipeTool WOOD_TO_COPPER_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.WOOD_TO_COPPER_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool WOOD_TO_IRON_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.WOOD_TO_IRON_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool WOOD_TO_GOLD_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.WOOD_TO_GOLD_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool WOOD_TO_DIAMOND_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.WOOD_TO_DIAMOND_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool WOOD_TO_OBSIDIAN_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.WOOD_TO_OBSIDIAN_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool WOOD_TO_NETHERITE_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.WOOD_TO_NETHERITE_CONVERSION_KIT_REGISTRY.get());
 
-    protected static final RecipeTool COPPER_TO_IRON_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.COPPER_TO_IRON_CONVERSION_KIT);
-    protected static final RecipeTool COPPER_TO_GOLD_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.COPPER_TO_GOLD_CONVERSION_KIT);
-    protected static final RecipeTool COPPER_TO_DIAMOND_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.COPPER_TO_DIAMOND_CONVERSION_KIT);
-    protected static final RecipeTool COPPER_TO_OBSIDIAN_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.COPPER_TO_OBSIDIAN_CONVERSION_KIT);
-    protected static final RecipeTool COPPER_TO_NETHERITE_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.COPPER_TO_NETHERITE_CONVERSION_KIT);
+    protected static final RecipeTool COPPER_TO_IRON_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.COPPER_TO_IRON_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool COPPER_TO_GOLD_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.COPPER_TO_GOLD_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool COPPER_TO_DIAMOND_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.COPPER_TO_DIAMOND_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool COPPER_TO_OBSIDIAN_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.COPPER_TO_OBSIDIAN_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool COPPER_TO_NETHERITE_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.COPPER_TO_NETHERITE_CONVERSION_KIT_REGISTRY.get());
 
-    protected static final RecipeTool IRON_TO_GOLD_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.IRON_TO_GOLD_CONVERSION_KIT);
-    protected static final RecipeTool IRON_TO_DIAMOND_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.IRON_TO_DIAMOND_CONVERSION_KIT);
-    protected static final RecipeTool IRON_TO_OBSIDIAN_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.IRON_TO_OBSIDIAN_CONVERSION_KIT);
-    protected static final RecipeTool IRON_TO_NETHERITE_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.IRON_TO_NETHERITE_CONVERSION_KIT);
+    protected static final RecipeTool IRON_TO_GOLD_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.IRON_TO_GOLD_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool IRON_TO_DIAMOND_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.IRON_TO_DIAMOND_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool IRON_TO_OBSIDIAN_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.IRON_TO_OBSIDIAN_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool IRON_TO_NETHERITE_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.IRON_TO_NETHERITE_CONVERSION_KIT_REGISTRY.get());
 
-    protected static final RecipeTool GOLD_TO_DIAMOND_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.GOLD_TO_DIAMOND_CONVERSION_KIT);
-    protected static final RecipeTool GOLD_TO_OBSIDIAN_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.GOLD_TO_OBSIDIAN_CONVERSION_KIT);
-    protected static final RecipeTool GOLD_TO_NETHERITE_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.GOLD_TO_NETHERITE_CONVERSION_KIT);
+    protected static final RecipeTool GOLD_TO_DIAMOND_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.GOLD_TO_DIAMOND_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool GOLD_TO_OBSIDIAN_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.GOLD_TO_OBSIDIAN_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool GOLD_TO_NETHERITE_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.GOLD_TO_NETHERITE_CONVERSION_KIT_REGISTRY.get());
 
-    protected static final RecipeTool DIAMOND_TO_OBSIDIAN_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.DIAMOND_TO_OBSIDIAN_CONVERSION_KIT);
-    protected static final RecipeTool DIAMOND_TO_NETHERITE_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.DIAMOND_TO_NETHERITE_CONVERSION_KIT);
+    protected static final RecipeTool DIAMOND_TO_OBSIDIAN_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.DIAMOND_TO_OBSIDIAN_CONVERSION_KIT_REGISTRY.get());
+    protected static final RecipeTool DIAMOND_TO_NETHERITE_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.DIAMOND_TO_NETHERITE_CONVERSION_KIT_REGISTRY.get());
 
-    protected static final RecipeTool OBSIDIAN_TO_NETHERITE_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.OBSIDIAN_TO_NETHERITE_CONVERSION_KIT);
+    protected static final RecipeTool OBSIDIAN_TO_NETHERITE_CONVERSION_KIT = new RecipeTool.UpgradeTool(AllItems.OBSIDIAN_TO_NETHERITE_CONVERSION_KIT_REGISTRY.get());
 
     protected final PackOutput.PathProvider pathProvider;
     private final HashMap<ResourceLocation, BlockConversionRecipe<?>> blockRecipes = new HashMap<>();
@@ -150,15 +150,15 @@ public abstract class ConversionRecipeProvider implements DataProvider {
         // Chest upgrade recipes
         {
             var isWoodTier = new IsInTagCondition(ModTags.Blocks.ES_WOODEN_CHESTS);
-            var isIronTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.IRON_CHEST.getBlockId());
-            var isGoldTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.GOLD_CHEST.getBlockId());
-            var isDiamondTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.DIAMOND_CHEST.getBlockId());
-            var isObsidianTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OBSIDIAN_CHEST.getBlockId());
-            var ironChest = new PartialBlockState<>(AllBlocks.IRON_CHEST);
-            var goldChest = new PartialBlockState<>(AllBlocks.GOLD_CHEST);
-            var diamondChest = new PartialBlockState<>(AllBlocks.DIAMOND_CHEST);
-            var obsidianChest = new PartialBlockState<>(AllBlocks.OBSIDIAN_CHEST);
-            var netheriteChest = new PartialBlockState<>(AllBlocks.NETHERITE_CHEST);
+            var isIronTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.IRON_CHEST_REGISTRY.get().getBlockId());
+            var isGoldTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.GOLD_CHEST_REGISTRY.get().getBlockId());
+            var isDiamondTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.DIAMOND_CHEST_REGISTRY.get().getBlockId());
+            var isObsidianTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OBSIDIAN_CHEST_REGISTRY.get().getBlockId());
+            var ironChest = new PartialBlockState<>(AllBlocks.IRON_CHEST_REGISTRY.get());
+            var goldChest = new PartialBlockState<>(AllBlocks.GOLD_CHEST_REGISTRY.get());
+            var diamondChest = new PartialBlockState<>(AllBlocks.DIAMOND_CHEST_REGISTRY.get());
+            var obsidianChest = new PartialBlockState<>(AllBlocks.OBSIDIAN_CHEST_REGISTRY.get());
+            var netheriteChest = new PartialBlockState<>(AllBlocks.NETHERITE_CHEST_REGISTRY.get());
 
             registerBlockRecipe(compasses.expandedstorage.ForgeMain.id("wood_to_iron_chest"),
                     new BlockConversionRecipe<>(ConversionRecipeProvider.WOOD_TO_IRON_CONVERSION_KIT, ironChest, isWoodTier)
@@ -213,16 +213,16 @@ public abstract class ConversionRecipeProvider implements DataProvider {
 
         // Old chest upgrade recipes
         {
-            var isWoodTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OLD_WOOD_CHEST.getBlockId());
-            var isIronTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OLD_IRON_CHEST.getBlockId());
-            var isGoldTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OLD_GOLD_CHEST.getBlockId());
-            var isDiamondTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OLD_DIAMOND_CHEST.getBlockId());
-            var isObsidianTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OLD_OBSIDIAN_CHEST.getBlockId());
-            var ironChest = new PartialBlockState<>(AllBlocks.OLD_IRON_CHEST);
-            var goldChest = new PartialBlockState<>(AllBlocks.OLD_GOLD_CHEST);
-            var diamondChest = new PartialBlockState<>(AllBlocks.OLD_DIAMOND_CHEST);
-            var obsidianChest = new PartialBlockState<>(AllBlocks.OLD_OBSIDIAN_CHEST);
-            var netheriteChest = new PartialBlockState<>(AllBlocks.OLD_NETHERITE_CHEST);
+            var isWoodTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OLD_WOOD_CHEST_REGISTRY.get().getBlockId());
+            var isIronTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OLD_IRON_CHEST_REGISTRY.get().getBlockId());
+            var isGoldTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OLD_GOLD_CHEST_REGISTRY.get().getBlockId());
+            var isDiamondTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OLD_DIAMOND_CHEST_REGISTRY.get().getBlockId());
+            var isObsidianTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OLD_OBSIDIAN_CHEST_REGISTRY.get().getBlockId());
+            var ironChest = new PartialBlockState<>(AllBlocks.OLD_IRON_CHEST_REGISTRY.get());
+            var goldChest = new PartialBlockState<>(AllBlocks.OLD_GOLD_CHEST_REGISTRY.get());
+            var diamondChest = new PartialBlockState<>(AllBlocks.OLD_DIAMOND_CHEST_REGISTRY.get());
+            var obsidianChest = new PartialBlockState<>(AllBlocks.OLD_OBSIDIAN_CHEST_REGISTRY.get());
+            var netheriteChest = new PartialBlockState<>(AllBlocks.OLD_NETHERITE_CHEST_REGISTRY.get());
 
             registerBlockRecipe(compasses.expandedstorage.ForgeMain.id("wood_to_iron_old_chest"),
                     new BlockConversionRecipe<>(ConversionRecipeProvider.WOOD_TO_IRON_CONVERSION_KIT, ironChest, isWoodTier)
@@ -278,18 +278,18 @@ public abstract class ConversionRecipeProvider implements DataProvider {
         // Barrel upgrade recipes
         {
             var isCopperTier = new IsInTagCondition(ModTags.Blocks.COPPER_BARRELS);
-            var isIronTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.IRON_BARREL.getBlockId());
-            var isGoldTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.GOLD_BARREL.getBlockId());
-            var isDiamondTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.DIAMOND_BARREL.getBlockId());
-            var isObsidianTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OBSIDIAN_BARREL.getBlockId());
-            var ironBarrel = new PartialBlockState<>(AllBlocks.IRON_BARREL);
-            var goldBarrel = new PartialBlockState<>(AllBlocks.GOLD_BARREL);
-            var diamondBarrel = new PartialBlockState<>(AllBlocks.DIAMOND_BARREL);
-            var obsidianBarrel = new PartialBlockState<>(AllBlocks.OBSIDIAN_BARREL);
-            var netheriteBarrel = new PartialBlockState<>(AllBlocks.NETHERITE_BARREL);
+            var isIronTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.IRON_BARREL_REGISTRY.get().getBlockId());
+            var isGoldTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.GOLD_BARREL_REGISTRY.get().getBlockId());
+            var isDiamondTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.DIAMOND_BARREL_REGISTRY.get().getBlockId());
+            var isObsidianTier = new IsRegistryObject(BuiltInRegistries.BLOCK, AllBlocks.OBSIDIAN_BARREL_REGISTRY.get().getBlockId());
+            var ironBarrel = new PartialBlockState<>(AllBlocks.IRON_BARREL_REGISTRY.get());
+            var goldBarrel = new PartialBlockState<>(AllBlocks.GOLD_BARREL_REGISTRY.get());
+            var diamondBarrel = new PartialBlockState<>(AllBlocks.DIAMOND_BARREL_REGISTRY.get());
+            var obsidianBarrel = new PartialBlockState<>(AllBlocks.OBSIDIAN_BARREL_REGISTRY.get());
+            var netheriteBarrel = new PartialBlockState<>(AllBlocks.NETHERITE_BARREL_REGISTRY.get());
 
             registerBlockRecipe(compasses.expandedstorage.ForgeMain.id("wood_to_copper_barrel"),
-                    new BlockConversionRecipe<>(ConversionRecipeProvider.WOOD_TO_COPPER_CONVERSION_KIT, new PartialBlockState<>(AllBlocks.COPPER_BARREL), isWoodBarrel)
+                    new BlockConversionRecipe<>(ConversionRecipeProvider.WOOD_TO_COPPER_CONVERSION_KIT, new PartialBlockState<>(AllBlocks.COPPER_BARREL_REGISTRY.get()), isWoodBarrel)
             );
             registerBlockRecipe(compasses.expandedstorage.ForgeMain.id("wood_to_iron_barrel"),
                     new BlockConversionRecipe<>(ConversionRecipeProvider.WOOD_TO_IRON_CONVERSION_KIT, ironBarrel, isWoodBarrel)
@@ -361,75 +361,75 @@ public abstract class ConversionRecipeProvider implements DataProvider {
         // Chest theme swap recipes
         {
             registerBlockRecipe(compasses.expandedstorage.ForgeMain.id("vanilla_to_wood_chest"),
-                    new BlockConversionRecipe<>(ConversionRecipeProvider.UNNAMED_MUTATOR, new PartialBlockState<>(AllBlocks.WOOD_CHEST), isWoodChest)
+                    new BlockConversionRecipe<>(ConversionRecipeProvider.UNNAMED_MUTATOR, new PartialBlockState<>(AllBlocks.WOOD_CHEST_REGISTRY.get()), isWoodChest)
             );
 
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("wood_to_pumpkin_chest"), AllBlocks.WOOD_CHEST, AllBlocks.PUMPKIN_CHEST);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("pumpkin_to_present_chest"), AllBlocks.PUMPKIN_CHEST, AllBlocks.PRESENT);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("present_to_bamboo_chest"), AllBlocks.PRESENT, AllBlocks.BAMBOO_CHEST);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("bamboo_to_moss_chest"), AllBlocks.BAMBOO_CHEST, AllBlocks.MOSS_CHEST);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("moss_to_old_wood_chest"), AllBlocks.MOSS_CHEST, AllBlocks.OLD_WOOD_CHEST);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("old_wood_chest_to_wood_chest"), AllBlocks.OLD_WOOD_CHEST, AllBlocks.WOOD_CHEST);
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("wood_to_pumpkin_chest"), AllBlocks.WOOD_CHEST_REGISTRY.get(), AllBlocks.PUMPKIN_CHEST_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("pumpkin_to_present_chest"), AllBlocks.PUMPKIN_CHEST_REGISTRY.get(), AllBlocks.PRESENT_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("present_to_bamboo_chest"), AllBlocks.PRESENT_REGISTRY.get(), AllBlocks.BAMBOO_CHEST_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("bamboo_to_moss_chest"), AllBlocks.BAMBOO_CHEST_REGISTRY.get(), AllBlocks.MOSS_CHEST_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("moss_to_old_wood_chest"), AllBlocks.MOSS_CHEST_REGISTRY.get(), AllBlocks.OLD_WOOD_CHEST_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("old_wood_chest_to_wood_chest"), AllBlocks.OLD_WOOD_CHEST_REGISTRY.get(), AllBlocks.WOOD_CHEST_REGISTRY.get());
 
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("iron_to_old_iron_chest"), AllBlocks.IRON_CHEST, AllBlocks.OLD_IRON_CHEST);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("old_iron_to_iron_chest"), AllBlocks.OLD_IRON_CHEST, AllBlocks.IRON_CHEST);
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("iron_to_old_iron_chest"), AllBlocks.IRON_CHEST_REGISTRY.get(), AllBlocks.OLD_IRON_CHEST_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("old_iron_to_iron_chest"), AllBlocks.OLD_IRON_CHEST_REGISTRY.get(), AllBlocks.IRON_CHEST_REGISTRY.get());
 
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("gold_to_old_gold_chest"), AllBlocks.GOLD_CHEST, AllBlocks.OLD_GOLD_CHEST);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("old_gold_to_gold_chest"), AllBlocks.OLD_GOLD_CHEST, AllBlocks.GOLD_CHEST);
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("gold_to_old_gold_chest"), AllBlocks.GOLD_CHEST_REGISTRY.get(), AllBlocks.OLD_GOLD_CHEST_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("old_gold_to_gold_chest"), AllBlocks.OLD_GOLD_CHEST_REGISTRY.get(), AllBlocks.GOLD_CHEST_REGISTRY.get());
 
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("diamond_to_old_diamond_chest"), AllBlocks.DIAMOND_CHEST, AllBlocks.OLD_DIAMOND_CHEST);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("old_diamond_to_diamond_chest"), AllBlocks.OLD_DIAMOND_CHEST, AllBlocks.DIAMOND_CHEST);
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("diamond_to_old_diamond_chest"), AllBlocks.DIAMOND_CHEST_REGISTRY.get(), AllBlocks.OLD_DIAMOND_CHEST_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("old_diamond_to_diamond_chest"), AllBlocks.OLD_DIAMOND_CHEST_REGISTRY.get(), AllBlocks.DIAMOND_CHEST_REGISTRY.get());
 
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("obsidian_to_old_obsidian_chest"), AllBlocks.OBSIDIAN_CHEST, AllBlocks.OLD_OBSIDIAN_CHEST);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("old_obsidian_to_obsidian_chest"), AllBlocks.OLD_OBSIDIAN_CHEST, AllBlocks.OBSIDIAN_CHEST);
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("obsidian_to_old_obsidian_chest"), AllBlocks.OBSIDIAN_CHEST_REGISTRY.get(), AllBlocks.OLD_OBSIDIAN_CHEST_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("old_obsidian_to_obsidian_chest"), AllBlocks.OLD_OBSIDIAN_CHEST_REGISTRY.get(), AllBlocks.OBSIDIAN_CHEST_REGISTRY.get());
 
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("netherite_to_old_netherite_chest"), AllBlocks.NETHERITE_CHEST, AllBlocks.OLD_NETHERITE_CHEST);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("old_netherite_to_netherite_chest"), AllBlocks.OLD_NETHERITE_CHEST, AllBlocks.NETHERITE_CHEST);
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("netherite_to_old_netherite_chest"), AllBlocks.NETHERITE_CHEST_REGISTRY.get(), AllBlocks.OLD_NETHERITE_CHEST_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("old_netherite_to_netherite_chest"), AllBlocks.OLD_NETHERITE_CHEST_REGISTRY.get(), AllBlocks.NETHERITE_CHEST_REGISTRY.get());
         }
 
         // Mini storage theme swap recipes
         {
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("vanilla_to_wood_mini_chest"), AllBlocks.VANILLA_WOOD_MINI_CHEST, AllBlocks.WOOD_MINI_CHEST);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("wood_to_pumpkin_mini_chest"), AllBlocks.WOOD_MINI_CHEST, AllBlocks.PUMPKIN_MINI_CHEST);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("pumpkin_to_red_mini_present"), AllBlocks.PUMPKIN_MINI_CHEST, AllBlocks.RED_MINI_PRESENT);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("red_to_white_mini_present"), AllBlocks.RED_MINI_PRESENT, AllBlocks.WHITE_MINI_PRESENT);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("white_to_candy_cane_mini_present"), AllBlocks.WHITE_MINI_PRESENT, AllBlocks.CANDY_CANE_MINI_PRESENT);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("candy_cane_to_green_mini_present"), AllBlocks.CANDY_CANE_MINI_PRESENT, AllBlocks.GREEN_MINI_PRESENT);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("green_to_lavender_present"), AllBlocks.GREEN_MINI_PRESENT, AllBlocks.LAVENDER_MINI_PRESENT);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("lavender_to_pink_amethyst_mini_present"), AllBlocks.LAVENDER_MINI_PRESENT, AllBlocks.PINK_AMETHYST_MINI_PRESENT);
-            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("pink_amethyst_to_vanilla_mini_chest"), AllBlocks.PINK_AMETHYST_MINI_PRESENT, AllBlocks.VANILLA_WOOD_MINI_CHEST);
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("vanilla_to_wood_mini_chest"), AllBlocks.VANILLA_WOOD_MINI_CHEST_REGISTRY.get(), AllBlocks.WOOD_MINI_CHEST_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("wood_to_pumpkin_mini_chest"), AllBlocks.WOOD_MINI_CHEST_REGISTRY.get(), AllBlocks.PUMPKIN_MINI_CHEST_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("pumpkin_to_red_mini_present"), AllBlocks.PUMPKIN_MINI_CHEST_REGISTRY.get(), AllBlocks.RED_MINI_PRESENT_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("red_to_white_mini_present"), AllBlocks.RED_MINI_PRESENT_REGISTRY.get(), AllBlocks.WHITE_MINI_PRESENT_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("white_to_candy_cane_mini_present"), AllBlocks.WHITE_MINI_PRESENT_REGISTRY.get(), AllBlocks.CANDY_CANE_MINI_PRESENT_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("candy_cane_to_green_mini_present"), AllBlocks.CANDY_CANE_MINI_PRESENT_REGISTRY.get(), AllBlocks.GREEN_MINI_PRESENT_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("green_to_lavender_present"), AllBlocks.GREEN_MINI_PRESENT_REGISTRY.get(), AllBlocks.LAVENDER_MINI_PRESENT_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("lavender_to_pink_amethyst_mini_present"), AllBlocks.LAVENDER_MINI_PRESENT_REGISTRY.get(), AllBlocks.PINK_AMETHYST_MINI_PRESENT_REGISTRY.get());
+            simpleBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("pink_amethyst_to_vanilla_mini_chest"), AllBlocks.PINK_AMETHYST_MINI_PRESENT_REGISTRY.get(), AllBlocks.VANILLA_WOOD_MINI_CHEST_REGISTRY.get());
 
-            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("pink_amethyst_to_vanilla_mini_chest_with_sparrow"), AllBlocks.PINK_AMETHYST_MINI_PRESENT, false, AllBlocks.VANILLA_WOOD_MINI_CHEST, true);
-            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("vanilla_to_wood_mini_chest_with_sparrow"), AllBlocks.VANILLA_WOOD_MINI_CHEST, true, AllBlocks.WOOD_MINI_CHEST, true);
-            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("wood_to_pumpkin_mini_chest_with_sparrow"), AllBlocks.WOOD_MINI_CHEST, true, AllBlocks.PUMPKIN_MINI_CHEST, true);
-            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("pumpkin_to_red_mini_present_with_sparrow"), AllBlocks.PUMPKIN_MINI_CHEST, true, AllBlocks.RED_MINI_PRESENT, true);
-            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("red_to_white_mini_present_with_sparrow"), AllBlocks.RED_MINI_PRESENT, true, AllBlocks.WHITE_MINI_PRESENT, true);
-            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("white_to_candy_cane_mini_present_with_sparrow"), AllBlocks.WHITE_MINI_PRESENT, true, AllBlocks.CANDY_CANE_MINI_PRESENT, true);
-            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("candy_cane_to_green_mini_present_with_sparrow"), AllBlocks.CANDY_CANE_MINI_PRESENT, true, AllBlocks.GREEN_MINI_PRESENT, true);
-            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("green_to_lavender_present_with_sparrow"), AllBlocks.GREEN_MINI_PRESENT, true, AllBlocks.LAVENDER_MINI_PRESENT, true);
-            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("lavender_to_pink_amethyst_mini_present_with_sparrow"), AllBlocks.LAVENDER_MINI_PRESENT, true, AllBlocks.PINK_AMETHYST_MINI_PRESENT, true);
-            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("pink_amethyst_with_sparrow_to_vanilla_mini_chest"), AllBlocks.PINK_AMETHYST_MINI_PRESENT, true, AllBlocks.VANILLA_WOOD_MINI_CHEST, false);
+            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("pink_amethyst_to_vanilla_mini_chest_with_sparrow"), AllBlocks.PINK_AMETHYST_MINI_PRESENT_REGISTRY.get(), false, AllBlocks.VANILLA_WOOD_MINI_CHEST_REGISTRY.get(), true);
+            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("vanilla_to_wood_mini_chest_with_sparrow"), AllBlocks.VANILLA_WOOD_MINI_CHEST_REGISTRY.get(), true, AllBlocks.WOOD_MINI_CHEST_REGISTRY.get(), true);
+            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("wood_to_pumpkin_mini_chest_with_sparrow"), AllBlocks.WOOD_MINI_CHEST_REGISTRY.get(), true, AllBlocks.PUMPKIN_MINI_CHEST_REGISTRY.get(), true);
+            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("pumpkin_to_red_mini_present_with_sparrow"), AllBlocks.PUMPKIN_MINI_CHEST_REGISTRY.get(), true, AllBlocks.RED_MINI_PRESENT_REGISTRY.get(), true);
+            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("red_to_white_mini_present_with_sparrow"), AllBlocks.RED_MINI_PRESENT_REGISTRY.get(), true, AllBlocks.WHITE_MINI_PRESENT_REGISTRY.get(), true);
+            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("white_to_candy_cane_mini_present_with_sparrow"), AllBlocks.WHITE_MINI_PRESENT_REGISTRY.get(), true, AllBlocks.CANDY_CANE_MINI_PRESENT_REGISTRY.get(), true);
+            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("candy_cane_to_green_mini_present_with_sparrow"), AllBlocks.CANDY_CANE_MINI_PRESENT_REGISTRY.get(), true, AllBlocks.GREEN_MINI_PRESENT_REGISTRY.get(), true);
+            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("green_to_lavender_present_with_sparrow"), AllBlocks.GREEN_MINI_PRESENT_REGISTRY.get(), true, AllBlocks.LAVENDER_MINI_PRESENT_REGISTRY.get(), true);
+            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("lavender_to_pink_amethyst_mini_present_with_sparrow"), AllBlocks.LAVENDER_MINI_PRESENT_REGISTRY.get(), true, AllBlocks.PINK_AMETHYST_MINI_PRESENT_REGISTRY.get(), true);
+            sparrowBlockThemeSwap(compasses.expandedstorage.ForgeMain.id("pink_amethyst_with_sparrow_to_vanilla_mini_chest"), AllBlocks.PINK_AMETHYST_MINI_PRESENT_REGISTRY.get(), true, AllBlocks.VANILLA_WOOD_MINI_CHEST_REGISTRY.get(), false);
 
-            sparrowReversibleBlockThemeSwap("iron_mini_chest", AllBlocks.IRON_MINI_CHEST);
-            sparrowReversibleBlockThemeSwap("gold_mini_chest", AllBlocks.GOLD_MINI_CHEST);
-            sparrowReversibleBlockThemeSwap("diamond_mini_chest", AllBlocks.DIAMOND_MINI_CHEST);
-            sparrowReversibleBlockThemeSwap("obsidian_mini_chest", AllBlocks.OBSIDIAN_MINI_CHEST);
-            sparrowReversibleBlockThemeSwap("netherite_mini_chest", AllBlocks.NETHERITE_MINI_CHEST);
+            sparrowReversibleBlockThemeSwap("iron_mini_chest", AllBlocks.IRON_MINI_CHEST_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("gold_mini_chest", AllBlocks.GOLD_MINI_CHEST_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("diamond_mini_chest", AllBlocks.DIAMOND_MINI_CHEST_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("obsidian_mini_chest", AllBlocks.OBSIDIAN_MINI_CHEST_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("netherite_mini_chest", AllBlocks.NETHERITE_MINI_CHEST_REGISTRY.get());
 
-            sparrowReversibleBlockThemeSwap("mini_barrel", AllBlocks.MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("copper_mini_barrel", AllBlocks.COPPER_MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("exposed_copper_mini_barrel", AllBlocks.EXPOSED_COPPER_MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("weathered_copper_mini_barrel", AllBlocks.WEATHERED_COPPER_MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("oxidized_copper_mini_barrel", AllBlocks.OXIDIZED_COPPER_MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("waxed_copper_mini_barrel", AllBlocks.WAXED_COPPER_MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("waxed_exposed_copper_mini_barrel", AllBlocks.WAXED_EXPOSED_COPPER_MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("waxed_weathered_copper_mini_barrel", AllBlocks.WAXED_WEATHERED_COPPER_MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("waxed_oxidized_copper_mini_barrel", AllBlocks.WAXED_OXIDIZED_COPPER_MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("iron_mini_barrel", AllBlocks.IRON_MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("gold_mini_barrel", AllBlocks.GOLD_MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("diamond_mini_barrel", AllBlocks.DIAMOND_MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("obsidian_mini_barrel", AllBlocks.OBSIDIAN_MINI_BARREL);
-            sparrowReversibleBlockThemeSwap("netherite_mini_barrel", AllBlocks.NETHERITE_MINI_BARREL);
+            sparrowReversibleBlockThemeSwap("mini_barrel", AllBlocks.MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("copper_mini_barrel", AllBlocks.COPPER_MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("exposed_copper_mini_barrel", AllBlocks.EXPOSED_COPPER_MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("weathered_copper_mini_barrel", AllBlocks.WEATHERED_COPPER_MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("oxidized_copper_mini_barrel", AllBlocks.OXIDIZED_COPPER_MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("waxed_copper_mini_barrel", AllBlocks.WAXED_COPPER_MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("waxed_exposed_copper_mini_barrel", AllBlocks.WAXED_EXPOSED_COPPER_MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("waxed_weathered_copper_mini_barrel", AllBlocks.WAXED_WEATHERED_COPPER_MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("waxed_oxidized_copper_mini_barrel", AllBlocks.WAXED_OXIDIZED_COPPER_MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("iron_mini_barrel", AllBlocks.IRON_MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("gold_mini_barrel", AllBlocks.GOLD_MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("diamond_mini_barrel", AllBlocks.DIAMOND_MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("obsidian_mini_barrel", AllBlocks.OBSIDIAN_MINI_BARREL_REGISTRY.get());
+            sparrowReversibleBlockThemeSwap("netherite_mini_barrel", AllBlocks.NETHERITE_MINI_BARREL_REGISTRY.get());
         }
     }
 

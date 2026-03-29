@@ -28,7 +28,7 @@ public final class TagProvider {
         @Override
         protected void addTags(HolderLookup.Provider provider) {
             TagHelper.registerBlockTags(this::tag);
-            this.tag(Tags.Blocks.CHESTS_WOODEN).add(AllBlocks.WOOD_CHEST);
+            this.tag(Tags.Blocks.CHESTS_WOODEN).add(AllBlocks.WOOD_CHEST_REGISTRY.get());
             this.tag(ModTags.Blocks.ES_WOODEN_CHESTS)
                 .addTag(Tags.Blocks.CHESTS_WOODEN);
         }
@@ -47,7 +47,7 @@ public final class TagProvider {
         @Override
         protected void addTags(HolderLookup.Provider provider) {
             TagHelper.registerItemTags(this::tag);
-            this.tag(Tags.Items.CHESTS_WOODEN).add(AllItems.WOOD_CHEST);
+            this.tag(Tags.Items.CHESTS_WOODEN).add(AllItems.WOOD_CHEST_REGISTRY.get());
             this.tag(ModTags.Items.ES_WOODEN_CHESTS)
                 .addTag(Tags.Items.CHESTS_WOODEN);
             this.tag(ForgeTags.Items.BAMBOO)

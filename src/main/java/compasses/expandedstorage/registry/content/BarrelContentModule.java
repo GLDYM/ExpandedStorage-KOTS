@@ -1,6 +1,5 @@
 package compasses.expandedstorage.registry.content;
 
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.block.BarrelBlock;
 import compasses.expandedstorage.block.CopperBarrelBlock;
 import compasses.expandedstorage.block.OpenableBlock;
@@ -11,6 +10,8 @@ import compasses.expandedstorage.item.MutationMode;
 import compasses.expandedstorage.item.ToolUsageResult;
 import compasses.expandedstorage.misc.Tier;
 import compasses.expandedstorage.misc.Utils;
+import compasses.expandedstorage.registry.AllBlockEntityTypes;
+import compasses.expandedstorage.registry.BlockMutatorBehaviours;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -57,6 +58,16 @@ final class BarrelContentModule {
     private BarrelContentModule() {
     }
 
+    static void bootstrap(ContentContext context) {
+        context.stat("open_copper_barrel");
+        context.stat("open_iron_barrel");
+        context.stat("open_gold_barrel");
+        context.stat("open_diamond_barrel");
+        context.stat("open_obsidian_barrel");
+        context.stat("open_netherite_barrel");
+        BlockMutatorBehaviours.register(new UpgradableBarrelPredicate(context), MutationMode.ROTATE, BarrelContentModule::rotateBarrelMutation);
+    }
+
     static Result create(ContentContext context) {
         Map<ResourceLocation, BarrelBlock> barrelBlocks = new LinkedHashMap<>(13);
         Map<ResourceLocation, BlockItem> barrelItems = new LinkedHashMap<>(13);
@@ -91,11 +102,10 @@ final class BarrelContentModule {
         addBarrel(barrelContext, compasses.expandedstorage.ForgeMain.id("netherite_barrel"), netheriteStat, context.netheriteTier, netheriteBarrelSettings);
 
         BlockEntityType<BarrelBlockEntity> blockEntityType = BlockEntityType.Builder.of(
-                (pos, state) -> new BarrelBlockEntity(CommonMain.getBarrelBlockEntityType(), pos, state, ((OpenableBlock) state.getBlock()).getBlockId(), GenericItemAccess::new, BasicLockable::new),
+            (pos, state) -> new BarrelBlockEntity(AllBlockEntityTypes.barrelBlockEntityType(), pos, state, ((OpenableBlock) state.getBlock()).getBlockId(), GenericItemAccess::new, BasicLockable::new),
                 barrelBlocks.values().toArray(BarrelBlock[]::new)
-        ).build(Util.fetchChoiceType(References.BLOCK_ENTITY, CommonMain.BARREL_OBJECT_TYPE.toString()));
-        CommonMain.setBarrelBlockEntityType(blockEntityType);
-        CommonMain.registerMutationBehaviour(new UpgradableBarrelPredicate(context), MutationMode.ROTATE, BarrelContentModule::rotateBarrelMutation);
+        ).build(Util.fetchChoiceType(References.BLOCK_ENTITY, AllBlockEntityTypes.BARREL_OBJECT_TYPE.toString()));
+        BlockMutatorBehaviours.register(new UpgradableBarrelPredicate(context), MutationMode.ROTATE, BarrelContentModule::rotateBarrelMutation);
         return new Result(barrelBlocks, barrelItems, blockEntityType);
     }
 

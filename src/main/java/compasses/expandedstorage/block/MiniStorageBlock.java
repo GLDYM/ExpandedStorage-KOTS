@@ -1,10 +1,10 @@
 package compasses.expandedstorage.block;
 
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.config.ModClientConfig;
 import compasses.expandedstorage.inventory.OpenableInventory;
 import compasses.expandedstorage.inventory.context.BlockContext;
 import compasses.expandedstorage.misc.Utils;
+import compasses.expandedstorage.registry.AllBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -121,7 +121,7 @@ public class MiniStorageBlock extends OpenableBlock implements SimpleWaterlogged
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return CommonMain.getMiniStorageBlockEntityType().create(pos, state);
+        return AllBlockEntityTypes.miniStorageBlockEntityType().create(pos, state);
     }
 
     @NotNull

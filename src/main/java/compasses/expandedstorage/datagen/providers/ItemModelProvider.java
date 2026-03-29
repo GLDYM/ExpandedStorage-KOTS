@@ -15,27 +15,27 @@ public final class ItemModelProvider extends net.minecraftforge.client.model.gen
     protected void registerModels() {
         ModelHelper.registerItemModels(this::simple);
 
-        //this.chest(AllItems.WOOD_CHEST);
-        //this.chest(AllItems.PUMPKIN_CHEST);
-        //this.chest(AllItems.PRESENT);
-        //this.chest(AllItems.IRON_CHEST);
-        //this.chest(AllItems.GOLD_CHEST);
-        //this.chest(AllItems.DIAMOND_CHEST);
-        //this.chest(AllItems.OBSIDIAN_CHEST);
-        //this.chest(AllItems.NETHERITE_CHEST);
+        //this.chest(AllItems.WOOD_CHEST_REGISTRY.get());
+        //this.chest(AllItems.PUMPKIN_CHEST_REGISTRY.get());
+        //this.chest(AllItems.PRESENT_REGISTRY.get());
+        //this.chest(AllItems.IRON_CHEST_REGISTRY.get());
+        //this.chest(AllItems.GOLD_CHEST_REGISTRY.get());
+        //this.chest(AllItems.DIAMOND_CHEST_REGISTRY.get());
+        //this.chest(AllItems.OBSIDIAN_CHEST_REGISTRY.get());
+        //this.chest(AllItems.NETHERITE_CHEST_REGISTRY.get());
 
-        //this.oldChest(AllItems.OLD_WOOD_CHEST);
-        //this.oldChest(AllItems.OLD_IRON_CHEST);
-        //this.oldChest(AllItems.OLD_GOLD_CHEST);
-        //this.oldChest(AllItems.OLD_DIAMOND_CHEST);
-        //this.oldChest(AllItems.OLD_OBSIDIAN_CHEST);
-        //this.oldChest(AllItems.OLD_NETHERITE_CHEST);
+        //this.oldChest(AllItems.OLD_WOOD_CHEST_REGISTRY.get());
+        //this.oldChest(AllItems.OLD_IRON_CHEST_REGISTRY.get());
+        //this.oldChest(AllItems.OLD_GOLD_CHEST_REGISTRY.get());
+        //this.oldChest(AllItems.OLD_DIAMOND_CHEST_REGISTRY.get());
+        //this.oldChest(AllItems.OLD_OBSIDIAN_CHEST_REGISTRY.get());
+        //this.oldChest(AllItems.OLD_NETHERITE_CHEST_REGISTRY.get());
 
-        //this.barrel(AllItems.IRON_BARREL);
-        //this.barrel(AllItems.GOLD_BARREL);
-        //this.barrel(AllItems.DIAMOND_BARREL);
-        //this.barrel(AllItems.OBSIDIAN_BARREL);
-        //this.barrel(AllItems.NETHERITE_BARREL);
+        //this.barrel(AllItems.IRON_BARREL_REGISTRY.get());
+        //this.barrel(AllItems.GOLD_BARREL_REGISTRY.get());
+        //this.barrel(AllItems.DIAMOND_BARREL_REGISTRY.get());
+        //this.barrel(AllItems.OBSIDIAN_BARREL_REGISTRY.get());
+        //this.barrel(AllItems.NETHERITE_BARREL_REGISTRY.get());
     }
 
     @SuppressWarnings("ConstantConditions")

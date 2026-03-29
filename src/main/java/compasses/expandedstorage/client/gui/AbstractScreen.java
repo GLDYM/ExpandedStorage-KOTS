@@ -1,10 +1,9 @@
 package compasses.expandedstorage.client.gui;
 
-import compasses.expandedstorage.ForgeClient;
 import compasses.expandedstorage.config.ModClientConfig;
 
-import compasses.expandedstorage.CommonClient;
 import compasses.expandedstorage.client.function.ScreenSize;
+import compasses.expandedstorage.client.registry.AllClientKeyMappings;
 import compasses.expandedstorage.misc.Utils;
 import compasses.expandedstorage.inventory.handler.AbstractHandler;
 import net.minecraft.client.Minecraft;
@@ -67,7 +66,7 @@ public abstract class AbstractScreen extends AbstractContainerScreen<AbstractHan
 
     public static AbstractScreen createScreen(AbstractHandler handler, Inventory playerInventory, Component title) {
         ResourceLocation forcedScreenType = handler.getForcedScreenType();
-        ResourceLocation preference = forcedScreenType != null ? forcedScreenType : ForgeClient.getPreferredScreenType();
+        ResourceLocation preference = forcedScreenType != null ? forcedScreenType : ModClientConfig.getPreferredScreenType();
         int scaledWidth = Minecraft.getInstance().getWindow().getGuiScaledWidth();
         int scaledHeight = Minecraft.getInstance().getWindow().getGuiScaledHeight();
         int slots = handler.getInventory().getContainerSize();
@@ -108,7 +107,7 @@ public abstract class AbstractScreen extends AbstractContainerScreen<AbstractHan
             return true;
         }
 
-        if (ForgeClient.fitVanillaConstraints()) {
+        if (ModClientConfig.fitVanillaConstraints()) {
             return false;
         }
 
@@ -162,8 +161,8 @@ public abstract class AbstractScreen extends AbstractContainerScreen<AbstractHan
     public final boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (this.handleKeyPress(keyCode, scanCode, modifiers)) {
             return true;
-        } else if (ForgeClient.isConfigKeyPressed(keyCode, scanCode, modifiers) && menu.getForcedScreenType() == null
-                && ForgeClient.getPreferredScreenType() != null) {
+        } else if (AllClientKeyMappings.isConfigKeyPressed(keyCode, scanCode, modifiers) && menu.getForcedScreenType() == null
+                && ModClientConfig.getPreferredScreenType() != null) {
             minecraft.setScreen(new PickScreen(this));
             return true;
         }

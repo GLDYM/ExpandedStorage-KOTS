@@ -1,7 +1,7 @@
 package compasses.expandedstorage.block;
 
 import compasses.expandedstorage.api.EsChestType;
-import compasses.expandedstorage.CommonMain;
+import compasses.expandedstorage.registry.AllBlockEntityTypes;
 import compasses.expandedstorage.block.entity.ChestBlockEntity;
 import compasses.expandedstorage.block.entity.OldChestBlockEntity;
 import compasses.expandedstorage.block.entity.extendable.OpenableBlockEntity;
@@ -132,7 +132,7 @@ public class ChestBlock extends AbstractChestBlock implements SimpleWaterloggedB
     @Override
     protected <T extends OldChestBlockEntity> BlockEntityType<T> getBlockEntityType() {
         //noinspection unchecked
-        return (BlockEntityType<T>) CommonMain.getChestBlockEntityType();
+        return (BlockEntityType<T>) AllBlockEntityTypes.chestBlockEntityType();
     }
 
     @Nullable

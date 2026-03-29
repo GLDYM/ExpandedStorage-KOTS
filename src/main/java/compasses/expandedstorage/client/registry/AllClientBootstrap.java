@@ -9,6 +9,7 @@ public final class AllClientBootstrap {
     }
 
     public static void register() {
+        ChestTextureRegistry.register();
         ModLoadingContext.get().getActiveContainer().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
                 () -> new ConfigScreenHandler.ConfigScreenFactory((client, screen) -> new PickScreen(screen)));
     }

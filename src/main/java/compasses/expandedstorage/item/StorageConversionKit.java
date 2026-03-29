@@ -2,7 +2,6 @@ package compasses.expandedstorage.item;
 
 import compasses.expandedstorage.ForgeMain;
 
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.misc.Utils;
 import compasses.expandedstorage.recipe.BlockConversionRecipe;
 import compasses.expandedstorage.recipe.ConversionRecipeManager;
@@ -71,7 +70,7 @@ public final class StorageConversionKit extends Item implements EntityInteractab
                     }
                 } else {
                     if (!level.isClientSide()) {
-                        if (this == AllItems.WOOD_TO_COPPER_CONVERSION_KIT && ForgeMain.isWoodenChest(state)) {
+                        if (this == AllItems.WOOD_TO_COPPER_CONVERSION_KIT_REGISTRY.get() && ForgeMain.isWoodenChest(state)) {
                             player.displayClientMessage(Component.translatable("tooltip.expandedstorage.conversion_kit.copper_chests_not_implemented"), true);
                         } else {
                             player.displayClientMessage(Component.translatable("tooltip.expandedstorage.conversion_kit.not_work_on_block"), true);
@@ -101,7 +100,7 @@ public final class StorageConversionKit extends Item implements EntityInteractab
             }
         } else {
             if (!level.isClientSide()) {
-                if (this == AllItems.WOOD_TO_COPPER_CONVERSION_KIT && entity.getType().is(ES_WOODEN_CHEST_MINECARTS)) {
+                if (this == AllItems.WOOD_TO_COPPER_CONVERSION_KIT_REGISTRY.get() && entity.getType().is(ES_WOODEN_CHEST_MINECARTS)) {
                     player.displayClientMessage(Component.translatable("tooltip.expandedstorage.conversion_kit.copper_chests_not_implemented"), true);
                 } else {
                     player.displayClientMessage(Component.translatable("tooltip.expandedstorage.conversion_kit.not_work_on_entity"), true);

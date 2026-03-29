@@ -1,5 +1,6 @@
 package compasses.expandedstorage;
 
+import compasses.expandedstorage.config.ModClientConfig;
 import compasses.expandedstorage.inventory.handler.AbstractHandler;
 import compasses.expandedstorage.network.ClientboundUpdateRecipesMessage;
 import compasses.expandedstorage.recipe.BlockConversionRecipe;
@@ -28,7 +29,10 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.loading.FMLLoader;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -52,7 +56,11 @@ public final class ForgeMain {
         ModRegistry.register(modBus);
         ModEvents.register();
         ModCompat.register(modBus);
-        ForgeClient.register(modBus);
+
+        if (FMLLoader.getDist() == Dist.CLIENT) {
+            contentBus.registerConfig(ModConfig.Type.CLIENT, ModClientConfig.SPEC, "expandedstorage-client.toml");
+            compasses.expandedstorage.client.registry.ClientRegistry.register(modBus);
+        }
     }
 
     public static MenuType<AbstractHandler> screenHandlerType() {
@@ -97,7 +105,7 @@ public final class ForgeMain {
     }
 
     public static boolean isWoodenChest(BlockState state) {
-        return state.is(AllBlocks.OLD_WOOD_CHEST) || state.is(Tags.Blocks.CHESTS_WOODEN);
+        return state.is(AllBlocks.OLD_WOOD_CHEST_REGISTRY.get()) || state.is(Tags.Blocks.CHESTS_WOODEN);
     }
 
     public static ResourceLocation id(String path) {

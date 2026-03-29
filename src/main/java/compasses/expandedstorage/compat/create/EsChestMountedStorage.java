@@ -10,7 +10,6 @@ import com.simibubi.create.api.contraption.storage.item.menu.StorageInteractionW
 import com.simibubi.create.content.contraptions.Contraption;
 import com.simibubi.create.foundation.item.ItemHelper;
 import compasses.expandedstorage.api.EsChestType;
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.block.AbstractChestBlock;
 import compasses.expandedstorage.block.OpenableBlock;
 import compasses.expandedstorage.block.entity.extendable.InventoryBlockEntity;

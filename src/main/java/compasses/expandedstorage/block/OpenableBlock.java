@@ -2,7 +2,6 @@ package compasses.expandedstorage.block;
 
 import compasses.expandedstorage.ForgeMain;
 
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.block.entity.extendable.OpenableBlockEntity;
 import compasses.expandedstorage.inventory.OpenableInventoryProvider;
 import compasses.expandedstorage.inventory.context.BlockContext;
@@ -26,6 +25,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.common.ToolActions;
+
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -56,7 +57,7 @@ public abstract class OpenableBlock extends Block implements OpenableInventoryPr
     @Override
     @SuppressWarnings("deprecation")
     public float getDestroyProgress(BlockState state, Player player, BlockGetter level, BlockPos pos) {
-        if (this == AllBlocks.BAMBOO_CHEST && ForgeMain.canDestroyBamboo(player.getMainHandItem())) {
+        if (this == AllBlocks.BAMBOO_CHEST_REGISTRY.get() && player.getMainHandItem().canPerformAction(ToolActions.SWORD_DIG)) {
             return 1.0F;
         }
         return super.getDestroyProgress(state, player, level, pos);

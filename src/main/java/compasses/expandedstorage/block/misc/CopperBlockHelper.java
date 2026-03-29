@@ -11,26 +11,26 @@ import java.util.Optional;
 public class CopperBlockHelper {
     private static final BiMap<Block, Block> OXIDISATION_MAP =
             ImmutableBiMap.<Block, Block>builder()
-                          .put(AllBlocks.COPPER_BARREL, AllBlocks.EXPOSED_COPPER_BARREL)
-                          .put(AllBlocks.EXPOSED_COPPER_BARREL, AllBlocks.WEATHERED_COPPER_BARREL)
-                          .put(AllBlocks.WEATHERED_COPPER_BARREL, AllBlocks.OXIDIZED_COPPER_BARREL)
-                          .put(AllBlocks.COPPER_MINI_BARREL, AllBlocks.EXPOSED_COPPER_MINI_BARREL)
-                          .put(AllBlocks.EXPOSED_COPPER_MINI_BARREL, AllBlocks.WEATHERED_COPPER_MINI_BARREL)
-                          .put(AllBlocks.WEATHERED_COPPER_MINI_BARREL, AllBlocks.OXIDIZED_COPPER_MINI_BARREL)
+                          .put(AllBlocks.COPPER_BARREL_REGISTRY.get(), AllBlocks.EXPOSED_COPPER_BARREL_REGISTRY.get())
+                          .put(AllBlocks.EXPOSED_COPPER_BARREL_REGISTRY.get(), AllBlocks.WEATHERED_COPPER_BARREL_REGISTRY.get())
+                          .put(AllBlocks.WEATHERED_COPPER_BARREL_REGISTRY.get(), AllBlocks.OXIDIZED_COPPER_BARREL_REGISTRY.get())
+                          .put(AllBlocks.COPPER_MINI_BARREL_REGISTRY.get(), AllBlocks.EXPOSED_COPPER_MINI_BARREL_REGISTRY.get())
+                          .put(AllBlocks.EXPOSED_COPPER_MINI_BARREL_REGISTRY.get(), AllBlocks.WEATHERED_COPPER_MINI_BARREL_REGISTRY.get())
+                          .put(AllBlocks.WEATHERED_COPPER_MINI_BARREL_REGISTRY.get(), AllBlocks.OXIDIZED_COPPER_MINI_BARREL_REGISTRY.get())
                           .build();
 
     private static final BiMap<Block, Block> INVERSE_MAP = OXIDISATION_MAP.inverse();
 
     private static final BiMap<Block, Block> DEWAXED_MAP =
             ImmutableBiMap.<Block, Block>builder()
-                          .put(AllBlocks.WAXED_COPPER_BARREL, AllBlocks.COPPER_BARREL)
-                          .put(AllBlocks.WAXED_EXPOSED_COPPER_BARREL, AllBlocks.EXPOSED_COPPER_BARREL)
-                          .put(AllBlocks.WAXED_WEATHERED_COPPER_BARREL, AllBlocks.WEATHERED_COPPER_BARREL)
-                          .put(AllBlocks.WAXED_OXIDIZED_COPPER_BARREL, AllBlocks.OXIDIZED_COPPER_BARREL)
-                          .put(AllBlocks.WAXED_COPPER_MINI_BARREL, AllBlocks.COPPER_MINI_BARREL)
-                          .put(AllBlocks.WAXED_EXPOSED_COPPER_MINI_BARREL, AllBlocks.EXPOSED_COPPER_MINI_BARREL)
-                          .put(AllBlocks.WAXED_WEATHERED_COPPER_MINI_BARREL, AllBlocks.WEATHERED_COPPER_MINI_BARREL)
-                          .put(AllBlocks.WAXED_OXIDIZED_COPPER_MINI_BARREL, AllBlocks.OXIDIZED_COPPER_MINI_BARREL)
+                          .put(AllBlocks.WAXED_COPPER_BARREL_REGISTRY.get(), AllBlocks.COPPER_BARREL_REGISTRY.get())
+                          .put(AllBlocks.WAXED_EXPOSED_COPPER_BARREL_REGISTRY.get(), AllBlocks.EXPOSED_COPPER_BARREL_REGISTRY.get())
+                          .put(AllBlocks.WAXED_WEATHERED_COPPER_BARREL_REGISTRY.get(), AllBlocks.WEATHERED_COPPER_BARREL_REGISTRY.get())
+                          .put(AllBlocks.WAXED_OXIDIZED_COPPER_BARREL_REGISTRY.get(), AllBlocks.OXIDIZED_COPPER_BARREL_REGISTRY.get())
+                          .put(AllBlocks.WAXED_COPPER_MINI_BARREL_REGISTRY.get(), AllBlocks.COPPER_MINI_BARREL_REGISTRY.get())
+                          .put(AllBlocks.WAXED_EXPOSED_COPPER_MINI_BARREL_REGISTRY.get(), AllBlocks.EXPOSED_COPPER_MINI_BARREL_REGISTRY.get())
+                          .put(AllBlocks.WAXED_WEATHERED_COPPER_MINI_BARREL_REGISTRY.get(), AllBlocks.WEATHERED_COPPER_MINI_BARREL_REGISTRY.get())
+                          .put(AllBlocks.WAXED_OXIDIZED_COPPER_MINI_BARREL_REGISTRY.get(), AllBlocks.OXIDIZED_COPPER_MINI_BARREL_REGISTRY.get())
                           .build();
 
     public static Optional<BlockState> getNextOxidisedState(BlockState state) {

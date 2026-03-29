@@ -1,10 +1,10 @@
 package compasses.expandedstorage.registry.content;
 
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.item.MutationMode;
 import compasses.expandedstorage.item.ToolUsageResult;
 import compasses.expandedstorage.recipe.BlockConversionRecipe;
 import compasses.expandedstorage.recipe.ConversionRecipeManager;
+import compasses.expandedstorage.registry.BlockMutatorBehaviours;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
@@ -17,7 +17,7 @@ final class ThemeSwapModule {
     }
 
     static void register() {
-        CommonMain.registerMutationBehaviour(ThemeSwapModule::alwaysTrue, MutationMode.SWAP_THEME, ThemeSwapModule::swapThemeMutation);
+        BlockMutatorBehaviours.register(ThemeSwapModule::alwaysTrue, MutationMode.SWAP_THEME, ThemeSwapModule::swapThemeMutation);
     }
 
     private static boolean alwaysTrue(Block block) {

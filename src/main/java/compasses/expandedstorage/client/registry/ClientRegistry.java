@@ -1,23 +1,19 @@
 package compasses.expandedstorage.client.registry;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.loading.FMLLoader;
+import net.minecraftforge.eventbus.api.IEventBus;
 
 public final class ClientRegistry {
     private ClientRegistry() {
     }
 
-    public static void register() {
-        if (!FMLLoader.getDist().equals(Dist.CLIENT)) {
-            return;
-        }
-
+    public static void register(IEventBus modBus) {
         AllClientBootstrap.register();
         AllClientEvents.register();
-        AllClientScreens.register();
-        AllClientItemProperties.register();
-        AllClientRenderers.register();
-        AllClientLayers.register();
+        AllClientKeyMappings.register(modBus);
+        AllClientScreens.register(modBus);
+        AllClientItemProperties.register(modBus);
+        AllClientRenderers.register(modBus);
+        AllClientLayers.register(modBus);
     }
 }
 

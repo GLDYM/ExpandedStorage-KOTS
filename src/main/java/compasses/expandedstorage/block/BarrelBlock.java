@@ -1,9 +1,9 @@
 package compasses.expandedstorage.block;
 
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.block.entity.BarrelBlockEntity;
 import compasses.expandedstorage.inventory.OpenableInventory;
 import compasses.expandedstorage.inventory.context.BlockContext;
+import compasses.expandedstorage.registry.AllBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -46,7 +46,7 @@ public class BarrelBlock extends OpenableBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return CommonMain.getBarrelBlockEntityType().create(pos, state);
+        return AllBlockEntityTypes.barrelBlockEntityType().create(pos, state);
     }
 
     @Override

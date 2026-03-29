@@ -1,9 +1,9 @@
 package compasses.expandedstorage.item;
 
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.misc.Utils;
 import compasses.expandedstorage.recipe.ConversionRecipeManager;
 import compasses.expandedstorage.recipe.EntityConversionRecipe;
+import compasses.expandedstorage.registry.BlockMutatorBehaviours;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -45,7 +45,7 @@ public final class StorageMutator extends Item implements EntityInteractableItem
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
         BlockState state = level.getBlockState(pos);
-        BlockMutatorBehaviour behaviour = CommonMain.getBlockMutatorBehaviour(state.getBlock(), StorageMutator.getMode(stack));
+        BlockMutatorBehaviour behaviour = BlockMutatorBehaviours.get(state.getBlock(), StorageMutator.getMode(stack));
         if (behaviour != null) {
             ToolUsageResult returnValue = behaviour.attempt(context, level, state, pos, stack);
             if (returnValue.getResult().shouldSwing()) {

@@ -4,12 +4,12 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import compasses.expandedstorage.api.EsChestType;
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.block.AbstractChestBlock;
 import compasses.expandedstorage.block.ChestBlock;
 import compasses.expandedstorage.block.entity.ChestBlockEntity;
 import compasses.expandedstorage.block.misc.Property;
 import compasses.expandedstorage.block.misc.PropertyRetriever;
+import compasses.expandedstorage.client.registry.ChestTextureRegistry;
 import compasses.expandedstorage.misc.Utils;
 import it.unimi.dsi.fastutil.floats.Float2FloatFunction;
 import it.unimi.dsi.fastutil.ints.Int2IntFunction;
@@ -223,7 +223,7 @@ public final class ChestBlockEntityRenderer implements BlockEntityRenderer<Chest
         } else {
             retriever = PropertyRetriever.createDirect(entity);
         }
-        VertexConsumer consumer = new Material(Sheets.CHEST_SHEET, CommonMain.getChestTexture(blockId, chestType)).buffer(provider, RenderType::entityCutout);
+        VertexConsumer consumer = new Material(Sheets.CHEST_SHEET, ChestTextureRegistry.getChestTexture(blockId, chestType)).buffer(provider, RenderType::entityCutout);
         float lidOpenness = ChestBlockEntityRenderer.getLidOpenness(retriever.get(ChestBlockEntityRenderer.LID_OPENNESS_FUNCTION_GETTER).orElse(f -> 0).get(delta));
         int brightness = retriever.get(ChestBlockEntityRenderer.BRIGHTNESS_PROPERTY).orElse(i -> i).applyAsInt(light);
         if (chestType == EsChestType.SINGLE) {

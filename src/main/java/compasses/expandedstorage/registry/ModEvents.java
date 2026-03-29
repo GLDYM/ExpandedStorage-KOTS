@@ -1,14 +1,28 @@
 package compasses.expandedstorage.registry;
 
-import compasses.expandedstorage.CommonMain;
+import compasses.expandedstorage.api.EsChestType;
+import compasses.expandedstorage.block.AbstractChestBlock;
+import compasses.expandedstorage.block.entity.OldChestBlockEntity;
 import compasses.expandedstorage.block.entity.extendable.OpenableBlockEntity;
+import compasses.expandedstorage.block.misc.DoubleItemAccess;
+import compasses.expandedstorage.block.strategies.ItemAccess;
 import compasses.expandedstorage.ForgeMain;
+import compasses.expandedstorage.item.EntityInteractableItem;
 import compasses.expandedstorage.misc.Utils;
 import compasses.expandedstorage.recipe.ConversionRecipeManager;
 import compasses.expandedstorage.recipe.ConversionRecipeReloadListener;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.DoubleBlockCombiner;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -20,6 +34,8 @@ import net.minecraftforge.event.OnDatapackSyncEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public final class ModEvents {
     private ModEvents() {
@@ -36,7 +52,7 @@ public final class ModEvents {
                     @Override
                     public <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction side) {
                         if (capability == ForgeCapabilities.ITEM_HANDLER) {
-                            return CommonMain.getItemAccess(entity.getLevel(), entity.getBlockPos(), entity.getBlockState(), entity)
+                            return getItemAccess(entity.getLevel(), entity.getBlockPos(), entity.getBlockState(), entity)
                                     .map(access -> LazyOptional.of(() -> (T) access.get()))
                                     .orElse(LazyOptional.empty());
                         }
@@ -47,12 +63,61 @@ public final class ModEvents {
         });
 
         MinecraftForge.EVENT_BUS.addListener((PlayerInteractEvent.EntityInteractSpecific event) -> {
-            InteractionResult result = CommonMain.interactWithEntity(event.getLevel(), event.getEntity(), event.getHand(), event.getTarget());
+            InteractionResult result = interactWithEntity(event.getLevel(), event.getEntity(), event.getHand(), event.getTarget());
             if (result != InteractionResult.PASS) {
                 event.setCancellationResult(result);
                 event.setCanceled(true);
             }
         });
+    }
+
+    private static <T> Optional<ItemAccess<T>> getItemAccess(Level level, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity) {
+        if (blockEntity instanceof OldChestBlockEntity entity) {
+            DoubleItemAccess<T> access = (DoubleItemAccess<T>) entity.getItemAccess();
+            EsChestType type = state.getValue(AbstractChestBlock.CURSED_CHEST_TYPE);
+            Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+            if (access.hasCachedAccess() || type == EsChestType.SINGLE) {
+                return Optional.of(access);
+            }
+            if (level.getBlockEntity(pos.relative(AbstractChestBlock.getDirectionToAttached(type, facing))) instanceof OldChestBlockEntity otherEntity) {
+                DoubleItemAccess<T> otherAccess = (DoubleItemAccess<T>) otherEntity.getItemAccess();
+                if (otherAccess.hasCachedAccess()) {
+                    return Optional.of(otherAccess);
+                }
+                DoubleItemAccess<T> first;
+                DoubleItemAccess<T> second;
+                if (AbstractChestBlock.getBlockType(type) == DoubleBlockCombiner.BlockType.FIRST) {
+                    first = access;
+                    second = otherAccess;
+                } else {
+                    first = otherAccess;
+                    second = access;
+                }
+                first.setOther(second);
+                return Optional.of(first);
+            }
+        } else if (blockEntity instanceof OpenableBlockEntity entity) {
+            return Optional.of((ItemAccess<T>) entity.getItemAccess());
+        }
+        return Optional.empty();
+    }
+
+    private static InteractionResult interactWithEntity(Level level, Player player, InteractionHand hand, Entity entity) {
+        if (player.isSpectator() || !player.isShiftKeyDown()) {
+            return InteractionResult.PASS;
+        }
+        ItemStack handStack = player.getItemInHand(hand);
+        if (handStack.getItem() instanceof EntityInteractableItem item) {
+            if (player.getCooldowns().isOnCooldown(handStack.getItem())) {
+                return InteractionResult.CONSUME;
+            }
+            InteractionResult result = item.es_interactEntity(level, entity, player, hand, handStack);
+            if (result == InteractionResult.FAIL) {
+                result = InteractionResult.CONSUME;
+            }
+            return result;
+        }
+        return InteractionResult.PASS;
     }
 }
 

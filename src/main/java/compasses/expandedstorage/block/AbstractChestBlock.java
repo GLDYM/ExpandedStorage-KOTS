@@ -1,7 +1,7 @@
 package compasses.expandedstorage.block;
 
 import compasses.expandedstorage.api.EsChestType;
-import compasses.expandedstorage.CommonMain;
+import compasses.expandedstorage.registry.AllBlockEntityTypes;
 import compasses.expandedstorage.block.entity.OldChestBlockEntity;
 import compasses.expandedstorage.block.misc.Property;
 import compasses.expandedstorage.block.misc.PropertyRetriever;
@@ -125,7 +125,7 @@ public class AbstractChestBlock extends OpenableBlock implements WorldlyContaine
 
     protected <T extends OldChestBlockEntity> BlockEntityType<T> getBlockEntityType() {
         //noinspection unchecked
-        return (BlockEntityType<T>) CommonMain.getOldChestBlockEntityType();
+        return (BlockEntityType<T>) AllBlockEntityTypes.oldChestBlockEntityType();
     }
 
     @Override

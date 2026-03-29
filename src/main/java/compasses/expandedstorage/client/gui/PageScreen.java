@@ -1,10 +1,9 @@
 package compasses.expandedstorage.client.gui;
 
-import compasses.expandedstorage.ForgeClient;
+import compasses.expandedstorage.config.ModClientConfig;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.datafixers.util.Pair;
-import compasses.expandedstorage.CommonClient;
 import compasses.expandedstorage.client.gui.widget.PageButton;
 import compasses.expandedstorage.misc.Utils;
 import compasses.expandedstorage.client.function.ScreenSize;
@@ -19,6 +18,7 @@ import net.minecraft.world.inventory.Slot;
 import org.anti_ad.mc.ipn.api.IPNButton;
 import org.anti_ad.mc.ipn.api.IPNGuiHint;
 import org.lwjgl.glfw.GLFW;
+import net.minecraftforge.fml.ModList;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -60,7 +60,7 @@ public final class PageScreen extends AbstractScreen {
     }
 
     public static ScreenSize retrieveScreenSize(int slots, int scaledWidth, int scaledHeight) {
-        if (ForgeClient.fitVanillaConstraints()) {
+        if (ModClientConfig.fitVanillaConstraints()) {
             return new ScreenSize(9, 6);
         }
 
@@ -90,7 +90,7 @@ public final class PageScreen extends AbstractScreen {
 
             if (newBlankSlots <= currentBlankSlots && newPages < currentPages && currentWidth == newWidth) {
                 picked = option;
-            } else if (ForgeClient.preferSmallerScreens() && currentPages == newPages + 1 && newBlankSlots < newWidth * newHeight / 2.0) {
+            } else if (ModClientConfig.preferSmallerScreens() && currentPages == newPages + 1 && newBlankSlots < newWidth * newHeight / 2.0) {
             } else if (newPages < currentPages && newBlankSlots < newWidth * newHeight / 2.0) {
                 picked = option;
             }
@@ -235,7 +235,7 @@ public final class PageScreen extends AbstractScreen {
             }
         }
         // Honestly this is dumb.
-        if (x == originalX && ForgeClient.isModLoaded("inventoryprofiles")) {
+        if (x == originalX && ModList.get().isLoaded("inventoryprofiles")) {
             x -= 14;
         }
         leftPageButton = new PageButton(x, y, 0,

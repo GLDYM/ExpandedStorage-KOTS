@@ -2,8 +2,8 @@ package compasses.expandedstorage.item;
 
 import com.google.common.base.Suppliers;
 import com.mojang.blaze3d.vertex.PoseStack;
-import compasses.expandedstorage.CommonMain;
 import compasses.expandedstorage.block.entity.ChestBlockEntity;
+import compasses.expandedstorage.registry.AllBlockEntityTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -28,7 +28,7 @@ public final class ChestBlockItem extends BlockItem {
             final Supplier<BlockEntityWithoutLevelRenderer> renderer = Suppliers.memoize(this::createItemRenderer);
 
             private BlockEntityWithoutLevelRenderer createItemRenderer() {
-                ChestBlockEntity renderEntity = CommonMain.getChestBlockEntityType().create(BlockPos.ZERO, ChestBlockItem.this.getBlock().defaultBlockState());
+                ChestBlockEntity renderEntity = AllBlockEntityTypes.chestBlockEntityType().create(BlockPos.ZERO, ChestBlockItem.this.getBlock().defaultBlockState());
                 Minecraft minecraft = Minecraft.getInstance();
                 return new BlockEntityWithoutLevelRenderer(minecraft.getBlockEntityRenderDispatcher(), minecraft.getEntityModels()) {
                     @Override
